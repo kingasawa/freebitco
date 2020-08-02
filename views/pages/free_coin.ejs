@@ -1,0 +1,122 @@
+<body>
+<!--<nav>-->
+<!--  <div class="nav-wrapper">-->
+<!--    <a href="#" class="brand-logo">FREEBITCO</a>-->
+<!--    <ul id="nav-mobile" class="right hide-on-med-and-down">-->
+<!--      <li class="active"><a href="#">FREE BTC</a></li>-->
+<!--      <li><a href="#">MULTIPLY BTC</a></li>-->
+<!--      <li><a href="#">BETTING</a></li>-->
+<!--      <li><a href="#">GOLDEN TICKET</a></li>-->
+<!--      <li><a href="#">EARN BTC</a></li>-->
+<!--      <li><a href="#">LOTTERY</a></li>-->
+<!--      <li><a href="#">CONTEST</a></li>-->
+<!--      <li><a href="#">REFER</a></li>-->
+<!--      <li><a href="#">MORE</a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+<div class="ui inverted fixed menu">
+  <div class="header item">FREEBITCO</div>
+  <div class="right menu">
+    <a class="item">FREE BTC</a>
+    <a class="item" style="color:#21ba45">MULTIPLY BTC</a>
+    <a class="item">BETTING</a>
+    <a class="item" style="color:#fbbd08">GOLDEN TICKET</a>
+    <a class="item">EARN BTC</a>
+    <a class="item">LOTTERY</a>
+    <a class="item">CONTEST</a>
+    <a class="item">REFER</a>
+    <a class="item">MORE</a>
+    <a class="item active teal">0.00000022 BTC</a>
+    <a class="item" href="auth/logout">
+      <i class="power off yellow large icon"></i>
+    </a>
+  </div>
+</div>
+
+<div id="freeBitcoinPage" class="container">
+  <div class="section">
+    <button class="ui green button">DEPOSIT</button>
+    <button class="ui yellow button">WITHDRAW</button>
+  </div>
+  <div class="section">
+    <div class="ui icon positive message">
+      <i class="trophy icon"></i>
+      <div class="content">
+        <p>Play <a href="#">MULTIPLY BTC</a> or <a href="#">BET ON EVENTS</a> and you could win a <a href="#">Lamborghini Huracan</a>!</p>
+      </div>
+    </div>
+    <div class="ui icon info message">
+      <i class="gem icon"></i>
+      <div class="content">
+        <p>Earn 4.08% annual interest on your FreeBitco.in balance! <a href="#">Click here to read more</a>.</p>
+      </div>
+    </div>
+    <h4 class="ui blue header"><a href="#">THIS GAME IS PROVABLY FAIR!</a></h4>
+    <h4 class="ui blue header"><a href="#">REQUIREMENTS TO UNLOCK BONUSES</a></h4>
+  </div>
+  <div class="section" style="margin-top:30px">
+    <h4>Please fill in the captcha below and click the ROLL button to WIN UP TO $200 IN FREE BITCOINS EVERY HOUR!</h4>
+    <div class="ui yellow message">
+      <p>Play <a href="#">MULTIPLY BTC</a>, <a href="#">BET ON EVENTS</a> or buy <a href="#">lottery tickets</a> to increase your</p>
+      <p>FREE BTC rewards by up to <a class="ui teal label">+0.00000418 BTC</a><i class="info icon"></i></p>
+      <p><strong>4.6429%</strong> achieved towards the next <a class="ui teal label">+0.00000022 BTC</a> bonus!</p>
+    </div>
+    <table class="ui inverted teal table" style="width:300px; margin:0 auto">
+      <thead>
+      <tr>
+        <th>LUCKY NUMBER</th>
+        <th>PAYOUT</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0 - 9885</td>
+          <td>0.00000022 BTC</td>
+        </tr>
+        <tr>
+          <td>9886 - 9985</td>
+          <td>0.00000218 BTC</td>
+        </tr>
+        <tr>
+          <td>9986 - 9993</td>
+          <td>0.00002184 BTC</td>
+        </tr>
+        <tr>
+          <td>9994 - 9997</td>
+          <td>0.00021840 BTC</td>
+        </tr>
+        <tr>
+          <td>9998 - 9999</td>
+          <td>0.00218399 BTC</td>
+        </tr>
+        <tr>
+          <td>10000</td>
+          <td>0.02183988 BTC</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="latestRollTime" class=""><%= data.latestRollTime %></div>
+  <div class="countdown"></div>
+  <% if( 1===3 ) { %>
+  <div class="section">
+    <button class="ui yellow button">
+      <i class="icon rocket"></i>
+      PLAY WITHOUT CAPCHA
+    </button>
+    <button class="ui orange button">
+      <i class="icon sync alternate"></i>
+      SWITCH CAPCHA
+    </button>
+  </div>
+  <div class="section"></div>
+  <div class="section">
+    <button id="submitRoll" class="ui green button">
+      <i class="icon play"></i>
+      ROLL!
+    </button>
+  </div>
+  <% } %>
+</div>
+</body>

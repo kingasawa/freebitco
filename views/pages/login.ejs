@@ -1,0 +1,29 @@
+<body>
+<%- partial ('../pages/partials/menu_no_login.ejs') %>
+<div class="container" style="padding:30px">
+  <div class="ui two column grid">
+    <div class="column"></div>
+    <div class="column">
+      <form class="ui form" method="POST" action="/auth/login">
+        <div class="field">
+          <label>Email</label>
+          <input type="text" value="<%= email %>" name="email" placeholder="Enter email">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="text" name="password" placeholder="Enter password">
+        </div>
+        <div class="field">
+          <label>2FA Code</label>
+          <input type="text" name="2fa" placeholder="Enter 2FA Code">
+        </div>
+        <button class="fluid ui inverted green button" type="submit">LOGIN</button>
+<!--        <div class="fluid ui submit inverted green button">LOGIN</div>-->
+      </form>
+      <div class="ui bottom attached warning message" style="margin-top:10px;text-align: center">
+        <a href="#">Forgot password</a> or <a href="#">Reset 2FA Code</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
