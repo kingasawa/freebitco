@@ -7,7 +7,7 @@
 module.exports = {
   index: async(req,res) => {
 
-    return res.view('pages/earn_btc');
+    return res.view('pages/betting');
   },
 
 };

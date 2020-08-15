@@ -1,5 +1,9 @@
 $(function() {
 
+  $('select.dropdown')
+    .dropdown()
+  ;
+
   // eslint-disable-next-line no-undef
   $('form#login').submit(function(e){
     e.preventDefault();
