@@ -6,6 +6,7 @@ module.exports = {
     console.log('2 receive params', params);
     req.wantsJSON = true
     passport.authenticate('local', function(err, user, info) {
+      console.log('err, user, info', {err, user, info});
       if ((err) || (!user)) {
         return res.status(403).send(info);
       } else {
