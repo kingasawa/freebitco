@@ -2,7 +2,8 @@ const passport = require('passport');
 
 module.exports = {
   login: function(req, res) {
-    // const params = req.allParams()
+    const params = req.allParams()
+    console.log('2 receive params', params);
     req.wantsJSON = true
     passport.authenticate('local', function(err, user, info) {
       if ((err) || (!user)) {
@@ -49,6 +50,7 @@ module.exports = {
   loginPage: async(req,res) => {
     const { email = null } = req.allParams()
     // console.log('req', req);
+    console.log('1 login page');
     if(req.user) {
       return res.redirect('/');
     }
