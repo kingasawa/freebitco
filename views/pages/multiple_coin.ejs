@@ -1,155 +1,204 @@
 <body>
 <%- partial ('../pages/partials/menu_with_login.ejs') %>
 
-  <div id="freeBitcoinPage" class="container">
-    <div class="section">
-      <button class="ui green button">DEPOSIT</button>
-      <button class="ui yellow button">WITHDRAW</button>
+<div id="multipleCoinPage" class="container">
+  <div class="section">
+    <button class="ui green button">DEPOSIT</button>
+    <button class="ui yellow button">WITHDRAW</button>
+  </div>
+
+
+
+
+  <div class="section" style="margin-top:30px">
+    <h3>Multiply your bitcoins up to 4,750x by playing a PROVABLY FAIR HI-LO game!</h3>
+    <p>Set a Bet Amount and click BET HI or BET LO to roll the dice and WIN BTC! Select a Jackpot to win big prizes by rolling 8888!</p>
+    <p>Get 1 free lottery ticket and 1 reward points for every 0.00000500 BTC that you wager and 1 free golden ticket for every 0.00500000 BTC that you wager!</p>
+
+    <div class="ui top attached tabular menu">
+      <a class="item active" data-tab="manualBet">MANUAL BET</a>
+      <a class="item" data-tab="autoBet">AUTO BET</a>
     </div>
 
-    <div class="section" style="margin-top:30px">
-      <h3>Your FreeBitco.in account is now also a bitcoin savings wallet!</h3>
-      <h3 class="ui red header">Receive compounded daily interest on any balance that you hold in your FreeBitco.in account, without doing anything.</h3>
-      <p>All you need to do is maintain a balance of at least 30,000 satoshi (0.0003 BTC) in your FreeBitco.in account and we shall pay you compounded interest on your full balance everyday. There is no lock-in period to earn interest (you start earning interest right from the first day!) and your balance can be withdrawn any time you wish. Treat your FreeBitco.in account like an instant-access savings account to hold your excess bitcoins and earn passive interest on your account balance everyday.</p>
-      <h3>We also pay you 25% referral commissions on any interest earned by your referrals!</h3>
-    </div>
 
-    <div class="section">
-      <div style="max-width:600px;margin:0 auto">
-        <div class="ui top attached message" style="background:#fcbc09;color:#fff">
-          ANNUAL INTEREST RATE
-        </div>
-        <div class="ui bottom attached message"><h2>4.08%</h2></div>
-      </div>
-      <div style="margin:15px 0 30px;font-size: 14px">
-        Daily interest will be calculated at a random time everyday @ 0.0109589% per day and rounded down to the nearest satoshi.
-      </div>
-      <div style="max-width:600px;margin:0 auto">
-        <div class="ui top attached message" style="background:#22ba45;color:#fff">
-          YOUR TOTAL INTEREST EARNED
-        </div>
-        <div class="ui bottom attached message"><h2>0.00000000 BTC</h2></div>
-      </div>
-    </div>
+    <div class="ui bottom attached tab segment active" data-tab="manualBet">
+        <div class="ui stackable three column grid">
+          <div class="column leftColumn">
+            <div class="ui top attached segment">
+              <p>MAX PROFIT PER BET segment is on top</p>
+            </div>
+            <div class="ui attached segment">
+              <p>20 BTC</p>
+            </div>
 
-    <div class="section">
-      <div style="max-width:600px;margin:20px auto">
-        <div class="ui top attached message" style="background:#54c8ff;color:#fff">
-          INTEREST CALCULATOR
-        </div>
-        <div class="ui bottom attached message">
-          <div class="ui middle aligned divided list">
-            <div class="item">
-              <div class="right floated content">
-                <div class="ui input">
-                  <input type="text">
+            <div class="ui horizontal segments" style="">
+              <div class="ui segment bet-amount">BET AMOUNT</div>
+              <div class="ui segment bet-count">/2</div>
+              <div class="ui segment bet-count">2x</div>
+              <div class="ui segment bet-count">MIN</div>
+              <div class="ui segment bet-count">MAX</div>
+            </div>
+            <div class="ui attached segment">
+              <p>0.00000001</p>
+            </div>
+            <div class="ui left fluid action input" style="margin-top:14px;">
+              <button class="large ui button">
+                WIN PROFIT
+              </button>
+              <input type="text" value="0.00000001">
+            </div>
+            <div class="ui horizontal segments">
+              <div class="ui segment">
+                <div class="ui top attached segment">
+                  <p>
+                    BET ODDS
+                    <i class="info circular inline icon link" data-content="Enter a value between 1.01 and 4750.00"></i>
+                  </p>
+                </div>
+                <div class="ui attached segment">
+                  <div class="ui fluid input">
+                    <input type="text" value="6.00" style="text-align: center">
+                  </div>
                 </div>
               </div>
-              <div style="line-height: 42px">
-                ACCOUNT BALANCE
-              </div>
-            </div>
-            <div class="item">
-              <div class="right floated content">
-                <div class="ui input">
-                  <input type="text" disabled>
+              <div class="ui segment">
+                <div class="ui top attached segment">
+                  <p>
+                    WIN CHANCE
+                    <i class="info circular inline icon link" data-content="Enter a value between 0.02 and 94.06"></i>
+                  </p>
+                </div>
+                <div class="ui attached segment">
+                  <div class="ui fluid input">
+                    <input type="text" value="15.83%" style="text-align: center">
+                  </div>
                 </div>
               </div>
-              <div style="line-height: 42px">
-                DAILY INTEREST
-              </div>
             </div>
-            <div class="item">
-              <div class="right floated content">
-                <div class="ui input">
-                  <input type="text" disabled>
-                </div>
-              </div>
-              <div style="line-height: 42px">
-                MONTHLY INTEREST (30D)
-              </div>
-            </div>
-            <div class="item">
-              <div class="right floated content">
-                <div class="ui input">
-                  <input type="text" disabled>
-                </div>
-              </div>
-              <div style="line-height: 42px">
-                YEARLY INTEREST (365D)
-              </div>
+            <div class="ui checkbox">
+              <input type="checkbox" name="example">
+              <label>ENABLE SOUNDS</label>
+              <h4>KEYBOARD SHORTCUTS</h4>
             </div>
           </div>
+
+
+          <div class="column centerColumn">dsds</div>
+
+
+
+          <div class="column rightColumn">
+            <h3>PLAY FOR JACKPOTS</h3>
+            <p>Roll number 8888 to win the jackpots!</p>
+            <table class="ui celled table center aligned">
+              <thead>
+              <tr>
+                <th>SELECT</th>
+                <th>PRICE(BTC)</th>
+                <th>COST(BTC)</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td data-label="Name">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                </td>
+                <td data-label="Age">1.00000000</td>
+                <td data-label="Job">0.00012500</td>
+              </tr>
+              <tr>
+                <td data-label="Name">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                </td>
+                <td data-label="Age">0.10000000</td>
+                <td data-label="Job">0.00001250</td>
+              </tr>
+              <tr>
+                <td data-label="Name">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                </td>
+                <td data-label="Age">0.01000000</td>
+                <td data-label="Job">0.00000125</td>
+              </tr>
+              <tr>
+                <td data-label="Name">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                </td>
+                <td data-label="Age">0.00100000</td>
+                <td data-label="Job">0.00000013</td>
+              </tr>
+              <tr>
+                <td data-label="Name">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                </td>
+                <td data-label="Age">0.00010000</td>
+                <td data-label="Job">0.00000002</td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
     </div>
 
-    <div class="section">
-      <div class="ui yellow message">
-        Bet on the latest events and win big prizes!
-      </div>
-    </div>
 
-    <div class="section" style="margin-top:30px">
-      <h1>BITCOIN SAVINGS FAQ</h1>
-      <h3>When is the daily interest credited?</h3>
-      <p>We calculate the interest on your account balance daily and credit it at a random time every day. If the interest would be credited at a fixed time everyday, people would be able to game the system by depositing before the credit time and then withdrawing after they receive their interest. To avoid this, the daily interest is calculated and credited at a random time everyday.</p>
-      <h3>How do you make money to pay us interest?</h3>
-      <p>When you hold money in your FreeBitco.in account, we split it into 3 parts - the first part is used to cover user withdrawals, the second part is used to bankroll our MULTIPLY BTC game and the third part is used to expand our bitcoin mining operation (which is currently 9.065Petahashes or 0.007% of the total hashpower of the bitcoin network). We make a profit and assume the full risks of our businesses and in return for you saving your money with us, we give you a risk-free fixed rate of return.</p>
-      <p>Below, we have signed a message using our bitcoin address that is used to collect payments from our bitcoin mining operation. This message can be verified on any bitcoin client or here to provide proof that we actually mine bitcoin.</p>
-
-      <div style="max-width:600px;margin:20px auto">
-        <div class="ui top attached message" style="background:#54c8ff;color:#fff">
-          PROOF OF MINING
-        </div>
-        <div class="ui bottom attached message" style="background: #fdfdfd">
-          <div style="max-width:600px;margin:20px auto">
-            <div class="ui top attached message">
-              <h3>BITCOIN ADDRESS</h3>
-            </div>
-            <div class="ui bottom attached message">
-              <div class="ui fluid input">
-                <input type="text" value="1EcH7pHYTHLo3cbdXfkf6e6Zh5JzCPGumc ">
-              </div>
-            </div>
-          </div>
-          <div style="max-width:600px;margin:20px auto">
-            <div class="ui top attached message">
-              <h3>MESSAGE</h3>
-            </div>
-            <div class="ui bottom attached message">
-              <div class="ui fluid input">
-                <input type="text" value="This is the FreeBitco.in mining address where payouts from our mining operation are received.">
-              </div>
-            </div>
-          </div>
-          <div style="max-width:600px;margin:20px auto">
-            <div class="ui top attached message">
-              <h3>SIGNATURE</h3>
-            </div>
-            <div class="ui bottom attached message">
-              <div class="ui fluid input">
-                <input type="text" value="HB7xbLIWPlTn5Vx3eCY1eAfib8VSahVd6ER1NyBEBI0BJANEEvXi6CuNHS8lRXzhkmOTpKPlaeOhNoCT60mZPa8=">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p>Please do not send any deposits to our mining address. To deposit bitcoins to your account, please use the deposit button at the top of the page.</p>
-      <h3>Is there a lock-in period or minimum investment period before I start earning interest?</h3>
-      <p>No! You start earning interest from the first day itself. There is no lock-in period, you can withdraw your bitcoins anytime you wish by using the WITHDRAW button at the top of the page. We always keep enough reserves to satisfy all withdrawals.</p>
-      <h3>Can I earn referral commissions on interest earned by my referrals?</h3>
-      <p>Yes! We pay you a 25% commission on any interest earned by your referrals. If your referral gets 100 satoshi in interest for a day, you will get 25 satoshi credited to your account.</p>
-      <h3>Will the interest rate be fixed forever or can it change?</h3>
-      <p>We may change the interest rate in the future if circumstances change. However, we shall communicate all rate changes at least 30 days in advance via the website and our twitter account (https://twitter.com/freebitco).</p>
-      <h3>How can I trust you with my money?</h3>
-      <p>We have been in business since 2013 and are one of the most popular bitcoin websites (check our Alexa rank here). Our users have deposited thousands of bitcoins and we have paid out tens of thousands of bitcoins over the years. We have also published proof of our mining operation above which can be used to monitor the mining payments we receive. We would recommend that you start saving small amounts first until we have earned your trust after which you can save larger amounts with us if you feel comfortable doing so.</p>
-      <h3>How can I keep my account secure to protect my savings?</h3>
-      <p>It is extremely important that you secure your account if you decide to hold a significant balance with us. Change your account password to a strong random one with atleast 15 characters and never ever share that password with anyone or re-use it with another website or service. Then activate 2-factor authentication and write down the secret key on a piece of paper to back it up since we do not reset 2-factor authentication under any circumstances (you lose your phone, reset it etc.). Both of these can be done by accessing the PROFILE page from the menu above.</p>
-      <h3>How do you store bitcoins securely?</h3>
-      <p>We use a combination of hot wallets, hardware wallets (Trezor) and BIP38 encrypted paper wallets to store bitcoins. At no time do we keep more than 5% of our total bitcoins in the hot wallet which is used for making payouts. The hardware wallet is used as a "warm" wallet and bitcoins are transferred from it to the hot wallet as required. Our paper wallets serve as our "cold" storage with the wallets generated on an air-gapped computer running Tails OS. Our hardware and paper wallets are also secured against physical theft as the hardware wallet requires a pin code and encryption password to access and the private keys in the paper wallet are encrypted which means that the coins in the wallet cannot be accessed without having both the private key and the encryption password. We also keep physical copies of the cold storage wallets at multiple locations.</p>
-      <h3>Can I opt-out from receiving interest on my account balance?</h3>
-      <p>Sure, you can do so under the DISABLE INTEREST option in the PROFILE page.</p>
+    <div class="ui bottom attached tab segment" data-tab="autoBet">
+      autoBet
     </div>
   </div>
+
+  <div class="section">
+    <div class="ui warning message">
+      <div class="content">
+        <p>Bet on the latest events and win big prizes!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section">
+      <div class="personal_stats">
+        <div class="table-thead ui top attached message">
+          ROLL HISTORY
+        </div>
+
+        <div class="ui attached segment">
+          DATE: 18/08/2020
+        </div>
+
+        <table class="ui bottom attached celled table center aligned">
+          <thead>
+          <tr>
+            <th>TIME</th>
+            <th>GAME</th>
+            <th>BET</th>
+            <th>ROLL</th>
+            <th>STAKE</th>
+            <th>MULT</th>
+            <th>PROFIT</th>
+            <th>JPOT</th>
+            <th>VER</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td data-label="Name">19:56:40</td>
+            <td data-label="Age">DICE</td>
+            <td data-label="Job">LO</td>
+            <td data-label="Job">477</td>
+            <td data-label="Job">0.00000001</td>
+            <td data-label="Job">2.00</td>
+            <td data-label="Job">0.00000001</td>
+            <td data-label="Job"><i class="ui close icon"></i></td>
+            <td data-label="Job">CLICK</td>
+          </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 </body>

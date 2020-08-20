@@ -1,7 +1,15 @@
 $(function() {
 
   $('select.dropdown')
-    .dropdown()
+    .dropdown();
+
+  $('.menu .item')
+    .tab();
+
+  $('.inline.icon')
+    .popup({
+      inline: true
+    })
   ;
 
   // eslint-disable-next-line no-undef
