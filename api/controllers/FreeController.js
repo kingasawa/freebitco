@@ -26,6 +26,12 @@ module.exports = {
     const capcha = req.body['g-recaptcha-response']
     console.log('capcha', capcha);
 
+    if(capcha === null) {
+      console.log('need verify capcha');
+    } else {
+      console.log('verified');
+    }
+
     const user = req.user
     const data = await Users.submitRoll(user.id)
     console.log('data', data);
