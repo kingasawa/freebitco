@@ -23,6 +23,8 @@ module.exports = {
     console.log('req', req);
     console.log('req body', req.body);
     console.log('req param', req.allParams());
+    const capcha = req.body['g-recaptcha-response']
+    console.log('capcha', capcha);
 
     const user = req.user
     const data = await Users.submitRoll(user.id)
