@@ -6,6 +6,13 @@
  */
 const moment = require('moment')
 
+var reCAPTCHA = require('recaptcha2');
+
+var recaptcha = new reCAPTCHA({
+  siteKey: '6LetQcIZAAAAAI_7HFSamc53qiygzSnozw18a6VJ', // retrieved during setup
+  secretKey: '6LetQcIZAAAAAAVpdP2ndf3vuYjmuNs4q5ffyLef' // retrieved during setup
+});
+
 module.exports = {
   index: async(req,res) => {
     const latestRollTime = req.user.latest_roll_time
@@ -26,7 +33,18 @@ module.exports = {
     const capcha = req.body['g-recaptcha-response']
     console.log('capcha', capcha);
 
-    if(capcha === null) {
+    recaptcha.validate(capcha)
+      .then(function(){
+        console.log('validated');
+        // validated and secure
+      })
+      .catch(function(errorCodes){
+        // invalid
+        console.log(recaptcha.translateErrors(errorCodes)); // translate error codes to human readable text
+      });
+
+    console.log('typeof capcha', typeof capcha);
+    if(capcha.length === 0) {
       console.log('need verify capcha');
     } else {
       console.log('verified');
