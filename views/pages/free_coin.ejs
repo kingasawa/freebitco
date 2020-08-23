@@ -64,26 +64,38 @@
       </tbody>
     </table>
   </div>
-  <div id="latestRollTime" class=""><%= data.latestRollTime %></div>
-  <div class="countdown"></div>
-  <% if( 1===3 ) { %>
   <div class="section">
-    <button class="ui yellow button">
-      <i class="icon rocket"></i>
-      PLAY WITHOUT CAPCHA
-    </button>
-    <button class="ui orange button">
-      <i class="icon sync alternate"></i>
-      SWITCH CAPCHA
-    </button>
+    <form action="?" method="POST">
+      <div id="html_element"></div>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
+
   </div>
-  <div class="section"></div>
-  <div class="section">
-    <button id="submitRoll" class="ui green button">
-      <i class="icon play"></i>
-      ROLL!
-    </button>
-  </div>
-  <% } %>
+
+<!--  <div id="latestRollTime" class=""><%= data.latestRollTime %></div>-->
+<!--  <div class="countdown"></div>-->
+<!--  <% if( 1===3 ) { %>-->
+<!--  <div class="section">-->
+<!--    <button class="ui yellow button">-->
+<!--      <i class="icon rocket"></i>-->
+<!--      PLAY WITHOUT CAPCHA-->
+<!--    </button>-->
+<!--    <button class="ui orange button">-->
+<!--      <i class="icon sync alternate"></i>-->
+<!--      SWITCH CAPCHA-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  <div class="section"></div>-->
+<!--  <div class="section">-->
+<!--    <button id="submitRoll" class="ui green button">-->
+<!--      <i class="icon play"></i>-->
+<!--      ROLL!-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  <% } %>-->
 </div>
 </body>
