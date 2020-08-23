@@ -20,6 +20,10 @@ module.exports = {
   },
 
   roll: async(req,res) => {
+    console.log('req', req);
+    console.log('req body', req.body);
+    console.log('req param', req.allParams());
+
     const user = req.user
     const data = await Users.submitRoll(user.id)
     console.log('data', data);
