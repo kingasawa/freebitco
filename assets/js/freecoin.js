@@ -27,6 +27,7 @@ $(function() {
       }
 
       return divResponseData
+        .empty()
         .append(`<p>Number: ${data.number}</p>`)
         .append(`<p>Coin: ${data.coin}</p>`)
     });
