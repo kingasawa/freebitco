@@ -65,10 +65,14 @@
     </table>
   </div>
   <div class="section">
-    <form action="/free" method="POST">
+    <form id="requestRoll">
       <div class="g-recaptcha" data-sitekey="6LetQcIZAAAAAI_7HFSamc53qiygzSnozw18a6VJ"></div>
-      <input type="text" name="name" value="">
-      <input type="submit" value="Submit">
+      <div class="rollResponse" style="margin:15px auto; max-width: 600px"></div>
+      <button type="submit" class="positive ui facebook button">
+        <i class="redo icon"></i>
+        ROLL!
+      </button>
+<!--      <input type="submit" value="ROLL!">-->
     </form>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
             async defer>

@@ -13,6 +13,8 @@ var recaptcha = new reCAPTCHA({
   secretKey: '6LetQcIZAAAAAAVpdP2ndf3vuYjmuNs4q5ffyLef' // retrieved during setup
 });
 
+const ENV_TEST = true;
+
 module.exports = {
   index: async(req,res) => {
     const latestRollTime = req.user.latest_roll_time
@@ -21,39 +23,36 @@ module.exports = {
       latestRollTime,
       canRoll
     }
-
-    console.log('data', data);
     return res.view('pages/free_coin', {data});
   },
 
   roll: async(req,res) => {
-    console.log('req', req);
-    console.log('req body', req.body);
-    console.log('req param', req.allParams());
-    const capcha = req.body['g-recaptcha-response']
-    console.log('capcha', capcha);
+    // if(ENV_TEST) {
+    //   return await Users.submitRoll(user.id)
+    // }
 
+    const params = req.allParams();
+    console.log('params', params);
+
+    const capcha = req.body['g-recaptcha-response']
     recaptcha.validate(capcha)
-      .then(function(){
+      .then(async() => {
         console.log('validated');
+        const user = req.user
+        const data = await Users.submitRoll(user.id)
+        console.log('data', data);
+        return res.json(data)
         // validated and secure
       })
       .catch(function(errorCodes){
         // invalid
         console.log(recaptcha.translateErrors(errorCodes)); // translate error codes to human readable text
+        return res.json({
+          error: 1,
+          message: 'reCAPTCHA is incorrect or has expired. Please try again.'
+        })
       });
 
-    console.log('typeof capcha', typeof capcha);
-    if(capcha.length === 0) {
-      console.log('need verify capcha');
-    } else {
-      console.log('verified');
-    }
-
-    const user = req.user
-    const data = await Users.submitRoll(user.id)
-    console.log('data', data);
-    return res.json(data)
   },
 
 
