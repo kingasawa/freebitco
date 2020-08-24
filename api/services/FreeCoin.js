@@ -4,17 +4,17 @@ const FreeCoin = {
     const number = Math.floor(Math.random() * max)
     let coin = 0
     if(number < 9885) {
-      coin = 0.00000021
+      coin = 0.00000017
     } else if (number > 9885 && number < 9985) {
-      coin = 0.00000215
+      coin = 0.00000172
     } else if (number > 9985 && number < 9993) {
-      coin = 0.00002155
+      coin = 0.00001716
     } else if (number > 9993 && number < 9997) {
-      coin = 0.00021550
+      coin = 0.00017162
     } else if (number > 9997 && number < 9999) {
-      coin = 0.00215499
+      coin = 0.00171618
     } else if (number === 10000) {
-      coin = 0.02154987
+      coin = 0.01716175
     }
     console.log('number, coin', {number, coin});
     return {

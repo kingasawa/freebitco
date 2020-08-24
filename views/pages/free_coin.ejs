@@ -1,5 +1,5 @@
 <body>
-<%- partial ('../pages/partials/menu_with_login.ejs') %>
+<%- partial ('../pages/partials/menu_with_login.ejs', {data: "khanh"}) %>
 
 <div id="freeBitcoinPage" class="container">
   <div class="section">
@@ -64,6 +64,7 @@
       </tbody>
     </table>
   </div>
+
   <div class="section">
     <form id="requestRoll">
       <div class="g-recaptcha" data-sitekey="6LetQcIZAAAAAI_7HFSamc53qiygzSnozw18a6VJ"></div>

@@ -22,15 +22,25 @@ $(function() {
       console.log('data', data);
       const divResponseData = $('.rollResponse');
       if(data.error) {
+        divResponseData.removeClass('hidden');
         return divResponseData
           .append(`<div class="ui red message">${data.message}</div>`)
       }
 
+      $('.currentCoin').html(`${data.currentCoin} BTC`)
       return divResponseData
         .empty()
-        .append(`<p>Number: ${data.number}</p>`)
-        .append(`<p>Coin: ${data.coin}</p>`)
+        .append(`<div class="rollPoint">${data.number}</div>`)
+        .append(`<div class="ui yellow message">You win ${data.coin} ILU, <span class="ui red text">${data.lotteryTicket} free lottery tickets</span> and <span>${data.rewardPoint} reward points</span>!</div>`)
     });
   });
 
 });
+
+
+// <div class="rollPoint"></div>
+//            <div class="rollTimeExpired"></div>
+//  <div>
+//   <p>before you can play for free again.</p>
+//  <div class="ui yellow message">Bet on the latest events and win big prizes!</div>
+//                                                                                                                                 </div>

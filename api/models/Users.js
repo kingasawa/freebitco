@@ -6,6 +6,7 @@
  */
 const moment = require('moment');
 const bcrypt = require('bcrypt-nodejs');
+const decimalConfig = 8;
 
 module.exports = {
   attributes: {
@@ -53,22 +54,29 @@ module.exports = {
     const { lottery_ticket, reward_point, current_coin } = user
 
     const currentTime = moment().format();
-    const getFreeCoin = FreeCoin.getCoin()
+    const getFreeCoin = FreeCoin.getCoin();
+    const currentCoin = current_coin+getFreeCoin.coin;
+    const newLotteryTicket = lottery_ticket+2;
+    const newRewardPoint = reward_point+2;
 
     const updated = await Users.update({id: userId},
       {
-        lottery_ticket: lottery_ticket+2,
-        reward_point: reward_point+2,
-        current_coin: current_coin+getFreeCoin.coin,
+        lottery_ticket: newLotteryTicket,
+        reward_point: newRewardPoint,
+        current_coin: currentCoin,
         latest_roll_time: currentTime
       }).fetch()
 
     console.log('updated', updated);
 
     return {
+      currentCoin,
       number: getFreeCoin.number,
-      coin: getFreeCoin.coin
+      coin: getFreeCoin.coin.toFixed(decimalConfig),
+      lotteryTicket: newLotteryTicket,
+      rewardPoint: newRewardPoint
     }
   },
+
 };
 

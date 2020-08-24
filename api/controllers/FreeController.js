@@ -13,8 +13,6 @@ var recaptcha = new reCAPTCHA({
   secretKey: '6LetQcIZAAAAAAVpdP2ndf3vuYjmuNs4q5ffyLef' // retrieved during setup
 });
 
-const ENV_TEST = true;
-
 module.exports = {
   index: async(req,res) => {
     const latestRollTime = req.user.latest_roll_time
