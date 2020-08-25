@@ -29,7 +29,7 @@
       <p>FREE BTC rewards by up to <a class="ui teal label">+0.00000418 BTC</a><i class="info icon"></i></p>
       <p><strong>4.6429%</strong> achieved towards the next <a class="ui teal label">+0.00000022 BTC</a> bonus!</p>
     </div>
-    <table class="ui inverted teal table" style="width:300px; margin:0 auto">
+    <table class="ui inverted blue celled table" style="width:300px; margin:0 auto">
       <thead>
       <tr>
         <th>LUCKY NUMBER</th>
@@ -66,6 +66,40 @@
   </div>
 
   <div class="section">
+    <div class="ui checkbox">
+      <input type="checkbox" name="example">
+      <label>Play sound when timer runs out (TEST SOUND)</label>
+    </div>
+
+    <div class="latestRollTime hidden"><%= data.latestRollTime %></div>
+
+    <div class="date_count_down" style="max-width:400px; margin: 15px auto">
+      <div class="ui four statistics">
+        <div class="red statistic">
+          <div class="value countdownDays"></div>
+          <div class="label">Days</div>
+        </div>
+        <div class="orange statistic">
+          <div class="value countdownHours"></div>
+          <div class="label">Hours</div>
+        </div>
+        <div class="yellow statistic">
+          <div class="value countdownMinutes"></div>
+          <div class="label">Minutes</div>
+        </div>
+        <div class="yellow statistic">
+          <div class="value countdownSeconds"></div>
+          <div class="label">Seconds</div>
+        </div>
+      </div>
+    </div>
+    <p>before you can play for free again.</p>
+    <div class="ui yellow message" style="max-width: 600px;margin: 0 auto">
+      Why not try to multiply your bitcoins up to 4,750 times by playing a provably fair HI-LO game!
+    </div>
+  </div>
+
+  <div class="section showRoll">
     <form id="requestRoll">
       <div class="g-recaptcha" data-sitekey="6LetQcIZAAAAAI_7HFSamc53qiygzSnozw18a6VJ"></div>
       <div class="rollResponse" style="margin:15px auto; max-width: 600px"></div>
@@ -73,14 +107,13 @@
         <i class="redo icon"></i>
         ROLL!
       </button>
-<!--      <input type="submit" value="ROLL!">-->
+      <!--      <input type="submit" value="ROLL!">-->
     </form>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
             async defer>
     </script>
 
   </div>
-
 <!--  <div id="latestRollTime" class=""><%= data.latestRollTime %></div>-->
 <!--  <div class="countdown"></div>-->
 <!--  <% if( 1===3 ) { %>-->
