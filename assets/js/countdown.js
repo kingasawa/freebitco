@@ -12,10 +12,10 @@ $(function() {
   $('.eventTime').text(expiredTime)
   $('.currentTime').text(currentTime)
 
-  $('.date_count_down').addClass('hidden');
+  $('.showCountdown').addClass('hidden');
 
   if(diffTime > 0) {
-    $('.date_count_down').removeClass('hidden');
+    $('.showCountdown').removeClass('hidden');
     $('.showRoll').addClass('hidden');
     const expired = setInterval(function(){
       duration = moment.duration(duration - interval, 'milliseconds');
