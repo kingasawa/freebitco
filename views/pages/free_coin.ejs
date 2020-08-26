@@ -65,7 +65,7 @@
     </table>
   </div>
 
-  <div class="section showCountdown">
+  <div class="section showCountdown hidden">
     <div class="ui checkbox">
       <input type="checkbox" name="example">
       <label>Play sound when timer runs out (TEST SOUND)</label>
@@ -99,10 +99,11 @@
     </div>
   </div>
 
+  <div class="rollResponse" style="margin:15px auto; max-width: 600px"></div>
+
   <div class="section showRoll">
     <form id="requestRoll">
       <div class="g-recaptcha" data-sitekey="6LetQcIZAAAAAI_7HFSamc53qiygzSnozw18a6VJ"></div>
-      <div class="rollResponse" style="margin:15px auto; max-width: 600px"></div>
       <button type="submit" class="positive ui facebook button">
         <i class="redo icon"></i>
         ROLL!
@@ -114,26 +115,6 @@
     </script>
 
   </div>
-<!--  <div id="latestRollTime" class=""><%= data.latestRollTime %></div>-->
-<!--  <div class="countdown"></div>-->
-<!--  <% if( 1===3 ) { %>-->
-<!--  <div class="section">-->
-<!--    <button class="ui yellow button">-->
-<!--      <i class="icon rocket"></i>-->
-<!--      PLAY WITHOUT CAPCHA-->
-<!--    </button>-->
-<!--    <button class="ui orange button">-->
-<!--      <i class="icon sync alternate"></i>-->
-<!--      SWITCH CAPCHA-->
-<!--    </button>-->
-<!--  </div>-->
-<!--  <div class="section"></div>-->
-<!--  <div class="section">-->
-<!--    <button id="submitRoll" class="ui green button">-->
-<!--      <i class="icon play"></i>-->
-<!--      ROLL!-->
-<!--    </button>-->
-<!--  </div>-->
-<!--  <% } %>-->
+
 </div>
 </body>
