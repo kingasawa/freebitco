@@ -8,4 +8,5 @@ module.exports.policies = {
   'auth/*': true,
   // Token Auth
   '*': 'isLogin',
+  'admin/*': 'isAdmin',
 };

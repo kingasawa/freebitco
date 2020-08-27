@@ -5,16 +5,13 @@ const bcrypt = require('bcrypt-nodejs');
 
 //After passport serializes the object, return the id
 passport.serializeUser((user, done)=> {
-  console.log('serializeUser user', user);
   done(null, user);
 });
 
 //Passport deserializes the user by id and returns the full user object.
 passport.deserializeUser((user, done)=>{
   const id = user.id;
-  console.log('deserializeUser user', id, user);
   Users.findOne(id).exec((err,userData)=> {
-    console.log('deserializeUser ---> userData', userData);
     done(err, userData);
   });
 });
@@ -36,7 +33,6 @@ let verifyHandler = (req ,email, password, cb)=> {
           email: user.email,
           id: user.id
         };
-        console.log('userDetails', userDetails);
         return cb(null, userDetails, { message: 'Login Successful' });
       });
     });

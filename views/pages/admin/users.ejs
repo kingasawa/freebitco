@@ -1,0 +1,51 @@
+<div id="adminPage">
+<div class="ui top attached demo menu">
+    <a class="item menu-open">
+        <i class="sidebar icon"></i>
+        Menu
+    </a>
+</div>
+<div class="ui bottom attached segment pushable">
+    <%- partial ('menu.ejs') %>
+
+    <div class="pusher">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/admin">Dashboard</a>
+            <i class="right angle icon divider"></i>
+            <div class="active section">Users</div>
+        </div>
+        <div class="ui basic segment">
+            <button class="ui right primary button">
+                <i class="ui plus icon"></i>
+                Add new user
+            </button>
+            <table class="ui padded blue table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Referrer</th>
+                    <th>Lottery Ticket</th>
+                    <th>Reward Point</th>
+                    <th>Coin</th>
+                    <th>Latest Roll</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% users.forEach(function(user){ %>
+                    <tr>
+                        <td><%- user.id %></td>
+                        <td><%- user.email %></td>
+                        <td><%- user.referrer %></td>
+                        <td><%- user.lottery_ticket %></td>
+                        <td><%- user.reward_point %></td>
+                        <td><%- user.current_coin %></td>
+                        <td><%- moment(user.latest_roll_time).fromNow() %></td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

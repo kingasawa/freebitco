@@ -1,5 +1,5 @@
 module.exports = async (req, res, next) => {
-  if (req.user) {
+  if (req.user && req.user.roll === 1) {
     return next();
   }
   else{

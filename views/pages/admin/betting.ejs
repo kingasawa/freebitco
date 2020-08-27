@@ -1,0 +1,48 @@
+<div id="adminPage">
+<div class="ui top attached demo menu">
+    <a class="item menu-open">
+        <i class="sidebar icon"></i>
+        Menu
+    </a>
+
+</div>
+<div class="ui bottom attached segment pushable">
+    <%- partial ('menu.ejs') %>
+
+    <div class="pusher">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/admin">Dashboard</a>
+            <i class="right angle icon divider"></i>
+            <div class="active section">Betting</div>
+        </div>
+        <div class="ui basic segment">
+            <button class="ui right primary button">
+                <i class="ui plus icon"></i>
+                Add new bet
+            </button>
+            <table class="ui padded blue table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Prize Pool</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% bets.forEach(function(bet){ %>
+                    <tr>
+                        <td><%- bet.id %></td>
+                        <td><%- bet.title %></td>
+                        <td><%- moment(bet.start_date).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                        <td><%- moment(bet.end_date).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                        <td><%- bet.prize_pool %></td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

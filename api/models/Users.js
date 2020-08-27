@@ -30,6 +30,10 @@ module.exports = {
     },
     latest_roll_time: {
       type: 'string'
+    },
+    roll: {
+      type: 'number',
+      defaultsTo: 0
     }
   },
 
@@ -47,6 +51,11 @@ module.exports = {
       });
     });
   },
+
+  fetchAll: async() => {
+    return await Users.find()
+  },
+
   submitRoll: async(userId) => {
     console.log('userId', userId);
     const user = await Users.findOne({id:userId})

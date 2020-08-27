@@ -20,6 +20,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   'GET /': 'HomeController.index',
+  'GET /admin': 'AdminController.dashboard',
+  'GET /admin/users': 'AdminController.users',
+  'GET /admin/betting': 'AdminController.betting',
   'GET /free': 'FreeController.index',
   'GET /earn': 'EarnController.index',
   'GET /contest': 'ContestController.index',
