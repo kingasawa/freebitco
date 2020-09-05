@@ -13,18 +13,9 @@ $(function() {
   ;
 
 
-  console.log('moment', moment().format());
-  // $('.context.example .ui.sidebar')
-  //   .sidebar({
-  //     context: $('.context.example .bottom.segment')
-  //   })
-  //   .sidebar('attach events', '.context.example .menu .item')
-  // ;
-
-  // $('.demo.sidebar')
-  //   .sidebar('setting', 'transition', 'overlay')
-  //   .sidebar('toggle')
-  // ;
+  $(".buttonOnEvent").click(function(){
+    $(this).toggleClass("active");
+  })
 
   $('.menu-open').click(function() {
     $('.ui.sidebar')

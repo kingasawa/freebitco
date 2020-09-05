@@ -19,11 +19,21 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  // Common Page
   'GET /': 'HomeController.index',
+  'GET /wallet': 'WalletController.index',
+  'GET /admin/golden_ticket/create': { view: 'pages/admin/create_golden_ticket' },
+
+  // Admin Page
   'GET /admin': 'AdminController.dashboard',
   'GET /admin/users': 'AdminController.users',
   'GET /admin/betting': 'AdminController.betting',
+  'GET /admin/golden_ticket': 'AdminController.goldenTicket',
+
+  // Client Page
   'GET /free': 'FreeController.index',
+  'POST /free': 'FreeController.roll',
+
   'GET /earn': 'EarnController.index',
   'GET /contest': 'ContestController.index',
   'GET /lottery': 'LotteryController.index',
@@ -31,11 +41,14 @@ module.exports.routes = {
   'GET /betting': 'BettingController.index',
   'GET /golden-ticket': 'GoldenTicketController.index',
   'GET /multiple-coin': 'MultipleCoinController.index',
-  'POST /free': 'FreeController.roll',
+
+  // Authenticated
   'GET /auth/login': 'AuthController.loginPage',
-  'GET /auth/logout': 'AuthController.logout',
-  'GET /auth/register': 'AuthController.registerPage',
   'POST /auth/login': 'AuthController.login',
+
+  'GET /auth/logout': 'AuthController.logout',
+
+  'GET /auth/register': 'AuthController.registerPage',
   'POST /auth/register': 'AuthController.register',
 
 

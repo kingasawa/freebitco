@@ -34,6 +34,10 @@ module.exports = {
     roll: {
       type: 'number',
       defaultsTo: 0
+    },
+    wallets: {
+      collection: 'wallets',
+      via: 'user'
     }
   },
 

@@ -1,0 +1,48 @@
+<div id="adminPage">
+<div class="ui top attached demo menu">
+    <a class="item menu-open">
+        <i class="sidebar icon"></i>
+        Menu
+    </a>
+
+</div>
+<div class="ui bottom attached segment pushable">
+    <%- partial ('menu.ejs') %>
+
+    <div class="pusher">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/admin">Dashboard</a>
+            <i class="right angle icon divider"></i>
+            <div class="active section">Golden Ticket</div>
+        </div>
+        <div class="ui basic segment">
+            <a class="ui right primary button" href="/admin/golden_ticket/create">
+                <i class="ui plus icon"></i>
+                Add new round
+            </a>
+            <table class="ui padded blue table">
+                <thead>
+                <tr>
+                    <th>Round</th>
+                    <th>Title</th>
+                    <th>Ticket Price</th>
+                    <th>Expired</th>
+                    <th>Active</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% goldenTickets.forEach(function(gt){ %>
+                    <tr>
+                        <td><%- gt.id %></td>
+                        <td><%- gt.title %></td>
+                        <td><%- gt.price %></td>
+                        <td><%- moment(gt.expired_at).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                        <td><%- gt.active %></td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

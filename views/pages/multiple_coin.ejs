@@ -10,7 +10,7 @@
 
 
 
-  <div class="section" style="margin-top:30px">
+  <div id="bet_main_board" class="section" style="margin-top:30px">
     <h3>Multiply your bitcoins up to 4,750x by playing a PROVABLY FAIR HI-LO game!</h3>
     <p>Set a Bet Amount and click BET HI or BET LO to roll the dice and WIN BTC! Select a Jackpot to win big prizes by rolling 8888!</p>
     <p>Get 1 free lottery ticket and 1 reward points for every 0.00000500 BTC that you wager and 1 free golden ticket for every 0.00500000 BTC that you wager!</p>
@@ -22,10 +22,10 @@
 
 
     <div class="ui bottom attached tab segment active" data-tab="manualBet">
-        <div class="ui stackable three column grid">
+        <div class="ui stackable two column grid">
           <div class="column leftColumn">
-            <div class="ui top attached segment">
-              <p>MAX PROFIT PER BET segment is on top</p>
+            <div class="ui top attached segment green-header">
+              <p>MAX PROFIT PER BET</p>
             </div>
             <div class="ui attached segment">
               <p>20 BTC</p>
@@ -49,7 +49,7 @@
             </div>
             <div class="ui horizontal segments">
               <div class="ui segment">
-                <div class="ui top attached segment">
+                <div class="ui top attached segment green-header">
                   <p>
                     BET ODDS
                     <i class="info circular inline icon link" data-content="Enter a value between 1.01 and 4750.00"></i>
@@ -62,7 +62,7 @@
                 </div>
               </div>
               <div class="ui segment">
-                <div class="ui top attached segment">
+                <div class="ui top attached segment green-header">
                   <p>
                     WIN CHANCE
                     <i class="info circular inline icon link" data-content="Enter a value between 0.02 and 94.06"></i>
@@ -75,21 +75,13 @@
                 </div>
               </div>
             </div>
-            <div class="ui checkbox">
-              <input type="checkbox" name="example">
-              <label>ENABLE SOUNDS</label>
-              <h4>KEYBOARD SHORTCUTS</h4>
-            </div>
           </div>
 
-
-          <div class="column centerColumn">dsds</div>
-
-
-
           <div class="column rightColumn">
-            <h3>PLAY FOR JACKPOTS</h3>
-            <p>Roll number 8888 to win the jackpots!</p>
+            <div class="out-board">
+              <h3>PLAY FOR JACKPOTS</h3>
+              <p>Roll number 8888 to win the jackpots!</p>
+            </div>
             <table class="ui celled table center aligned">
               <thead>
               <tr>
@@ -101,49 +93,318 @@
               <tbody>
               <tr>
                 <td data-label="Name">
-                  <input type="checkbox" tabindex="0" class="hidden">
+                  <input type="checkbox" name="example">
                 </td>
                 <td data-label="Age">1.00000000</td>
                 <td data-label="Job">0.00012500</td>
               </tr>
               <tr>
                 <td data-label="Name">
-                  <input type="checkbox" tabindex="0" class="hidden">
+                  <input type="checkbox" name="example">
                 </td>
                 <td data-label="Age">0.10000000</td>
                 <td data-label="Job">0.00001250</td>
               </tr>
               <tr>
                 <td data-label="Name">
-                  <input type="checkbox" tabindex="0" class="hidden">
+                  <input type="checkbox" name="example">
                 </td>
                 <td data-label="Age">0.01000000</td>
                 <td data-label="Job">0.00000125</td>
               </tr>
               <tr>
                 <td data-label="Name">
-                  <input type="checkbox" tabindex="0" class="hidden">
+                  <input type="checkbox" name="example">
                 </td>
                 <td data-label="Age">0.00100000</td>
                 <td data-label="Job">0.00000013</td>
               </tr>
               <tr>
                 <td data-label="Name">
-                  <input type="checkbox" tabindex="0" class="hidden">
+                  <input type="checkbox" name="example">
                 </td>
                 <td data-label="Age">0.00010000</td>
                 <td data-label="Job">0.00000002</td>
               </tr>
-
               </tbody>
             </table>
+            <div class="ui checkbox out-board">
+              <input type="checkbox" name="example">
+              <label>ENABLE SOUNDS</label>
+              <h4>KEYBOARD SHORTCUTS</h4>
+            </div>
           </div>
         </div>
+      <div class="ui segment">
+        <div class="section" style="margin-top:15px">
+          <span id="firstJackpotNumber" class="jackpotNumber">0</span>
+          <span id="secondJackpotNumber" class="jackpotNumber">0</span>
+          <span id="thirdJackpotNumber" class="jackpotNumber">0</span>
+          <span id="fourthJackpotNumber" class="jackpotNumber">0</span>
+          <span id="fifthJackpotNumber" class="jackpotNumber">0</span>
+        </div>
+        <div class="section">
+          <button class="ui yellow button">BET HIGH</button>
+          <button class="ui yellow button">BET LOW</button>
+        </div>
+        <div class="section">
+          <p>
+            To win, BET HI and get a number higher than 5250 or BET LO and get a number lower than 4750
+          </p>
+        </div>
+        <div class="section">
+          <div class="ui checkbox out-board">
+            <input type="checkbox" name="example">
+            <label>DISABLE ANIMATION</label>
+          </div>
+        </div>
+      </div>
     </div>
 
-
+<!--Autobet-->
     <div class="ui bottom attached tab segment" data-tab="autoBet">
-      autoBet
+      <div class="ui stackable two column grid">
+        <div class="column leftColumn">
+
+          <div class="ui left fluid action input" style="margin-top:14px;">
+            <button class="large ui button">
+              BASE BET
+            </button>
+            <input type="text" value="0.00000001">
+          </div>
+
+          <div class="ui left fluid action input" style="margin-top:14px;">
+            <button class="large ui button">
+              MAX BET/WIN
+            </button>
+            <input type="text" value="20">
+          </div>
+
+          <div class="ui horizontal segments">
+            <div class="ui segment">
+              <div class="ui top attached segment green-header">
+                <p>
+                  BET ODDS
+                </p>
+              </div>
+              <div class="ui attached segment">
+                <div class="ui fluid input">
+                  <input type="text" value="2.00" style="text-align: center">
+                </div>
+              </div>
+            </div>
+            <div class="ui segment">
+              <div class="ui top attached segment green-header">
+                <p>
+                  NO. OF ROLLS
+                </p>
+              </div>
+              <div class="ui attached segment">
+                <div class="ui fluid input">
+                  <input type="text" value="1000000" style="text-align: center">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="green-header ui top attached message">
+            BET ON
+          </div>
+          <div class="ui bottom attached segment">
+            <div class="ui form">
+              <div class="inline fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>HIGH</label>
+                    <input type="checkbox" name="fruit" checked="checked">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>LOW</label>
+                    <input type="checkbox" name="fruit">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>ALTERNATE</label>
+                    <input type="checkbox" name="fruit">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="personal_stats" style="max-width:600px; margin:15px auto">
+            <div class="green-header ui attached message">
+              STOP BETTING AFTER
+            </div>
+            <table class="ui bottom attached celled table center aligned" style="margin:0 -1px">
+              <tbody>
+              <tr>
+                <td><input type="checkbox" name="fruit"></td>
+                <td>PROFIT >=</td>
+                <td>
+                  <div class="ui input">
+                    <input type="text" value="0.00000001">
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" name="fruit"></td>
+                <td>LOSS >=</td>
+                <td>
+                  <div class="ui input">
+                    <input type="text" value="0.00000001">
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+
+        </div>
+
+        <div class="column rightColumn" style="margin-top:14px">
+
+
+          <div class="yellow-header ui top attached message">
+            <div class="ui form">
+              <div class="inline fields" style="margin-bottom: 0">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="frequency" checked="checked">
+                    <label>ON WIN</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="frequency">
+                    <label>ON LOSE</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui bottom attached segment">
+            <div class="ui form" style="text-align: left">
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>RETURN TO BASE BET</label>
+                    <input type="checkbox" name="fruit" checked="checked">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>INCREASE BET BY
+                      <div class="ui input" style="width:80px;margin:0 10px;height: 14px">
+                        <input type="text" value="0.00">
+                      </div>
+                      %
+                    </label>
+                    <input type="checkbox" name="fruit">
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>CHANGE ODDS TO
+                      <div class="ui input" style="width:80px;margin:0 10px;height: 14px">
+                        <input type="text" value="0.00">
+                      </div>
+                    </label>
+                    <input type="checkbox" name="fruit">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="yellow-header ui top attached message">
+            ON HITTING MAX BET/WIN
+          </div>
+          <div class="ui bottom attached segment">
+            <div class="ui form" style="text-align: left">
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>RETURN TO BASE BET</label>
+                    <input type="checkbox" name="fruit" checked="checked">
+                  </div>
+                </div>
+              </div>
+
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>STOP BETTING</label>
+                    <input type="checkbox" name="fruit" checked="checked">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui bottom attached segment">
+            <div class="ui form" style="text-align: left">
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>RANDOMIZE CLIENT SEED</label>
+                    <input type="checkbox" name="fruit" checked="checked">
+                  </div>
+                </div>
+              </div>
+
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>DO NOT REFRESH</label>
+                    <input type="checkbox" name="fruit" checked="checked">
+                  </div>
+                </div>
+              </div>
+
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui checkbox">
+                    <label>ENABLE SOUNDS</label>
+                    <input type="checkbox" name="fruit" checked="checked">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="ui segment">
+        <div class="section" style="margin-top:15px;">
+          <span id="firstJackpotNumber" class="jackpotNumber">0</span>
+          <span id="secondJackpotNumber" class="jackpotNumber">0</span>
+          <span id="thirdJackpotNumber" class="jackpotNumber">0</span>
+          <span id="fourthJackpotNumber" class="jackpotNumber">0</span>
+          <span id="fifthJackpotNumber" class="jackpotNumber">0</span>
+        </div>
+        <div class="section">
+          <button class="ui yellow button">START AUTO-BET</button>
+        </div>
+        <div class="section">
+          <p>
+            PLAY FOR JACKPOTS
+          </p>
+          <p>Roll number 8888 to win the jackpots!</p>
+        </div>
+        <div class="section">
+          <div class="ui checkbox out-board">
+            <input type="checkbox" name="example">
+            <label>DISABLE ANIMATION</label>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

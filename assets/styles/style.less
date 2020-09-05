@@ -16,6 +16,7 @@ body {
     margin: 30px 15px 0;
   }
 }
+
 #multipleCoinPage {
   .ui.action.input:not([class*="left action"])>input {
     border-right-color: #ccc !important;
@@ -28,6 +29,46 @@ body {
     .bet-count {
       font-size: 12px;
     }
+  }
+  #bet_main_board {
+    .tab.segment {
+      background: #2f2f2f;
+    }
+    .out-board {
+      color: #e7e7e7;
+      margin: 10px;
+      label {
+        color: #fcb42e;
+      }
+    }
+    table {
+      max-width: 600px;
+      margin: 15px auto;
+      thead th {
+        color: #fff;
+        background: linear-gradient(to bottom,#fcbc09 5%,#fcc01f 100%);
+        background-color: #fcbc09;
+      }
+    }
+  }
+  //OVERWRITE
+  .ui.action.input>.button, .ui.action.input>.buttons>.button {
+    border-radius: 0 !important;
+    background: linear-gradient(to bottom,#40ff7f 5%,#2EB85C 100%) !important;
+    background-color: #2eb85c !important;
+  }
+  input {
+    border-radius: 0;
+  }
+
+  .ui.tabular.menu .active.item {
+    background: #2f2f2f;
+    color: #e7e7e7;
+  }
+
+  .ui.tabular.menu .item {
+    background: #ececec;
+    font-weight: bold;
   }
 }
 #bettingPage {
@@ -85,11 +126,11 @@ body {
       background: -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#3192f3),color-stop(1,#005bb6)) !important;
       background: -moz-linear-gradient(top,#3192f3 5%,#005bb6 100%) !important;
     }
-    .referral-url, .forum-code {
+    .referral-url, .forum-code, .green-header {
       background: linear-gradient(to bottom,#40ff7f 5%,#2EB85C 100%);
       background-color: #2eb85c;
     }
-    .total-referral {
+    .total-referral, .yellow-header {
       background: linear-gradient(to bottom,#fcbc09 5%,#fcc01f 100%);
       background-color: #fcbc09;
     }
@@ -187,4 +228,25 @@ body {
   .ui.form .field input:disabled {
     opacity: 1;
   }
+}
+
+.buttonOnEvent {
+  background: #cccccc !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.jackpotNumber {
+  font-size: 3.5em;
+  padding: 3px 7px;
+  border-radius: 5px;
+  color: #fff;
+  background: #45484d;
+  background: -moz-linear-gradient(top,#45484d 0%,#000000 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#45484d),color-stop(100%,#000000));
+  background: -webkit-linear-gradient(top,#45484d 0%,#000000 100%);
+  background: -o-linear-gradient(top,#45484d 0%,#000000 100%);
+  background: -ms-linear-gradient(top,#45484d 0%,#000000 100%);
+  background: linear-gradient(to bottom,#45484d 0%,#000000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d',endColorstr='#000000',GradientType=0 );
 }
