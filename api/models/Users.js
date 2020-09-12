@@ -6,7 +6,7 @@
  */
 const moment = require('moment');
 const bcrypt = require('bcrypt-nodejs');
-const decimalConfig = 8;
+const { setting } = sails.config.system;
 
 module.exports = {
   attributes: {
@@ -61,7 +61,6 @@ module.exports = {
   },
 
   submitRoll: async(userId) => {
-    console.log('userId', userId);
     const user = await Users.findOne({id:userId})
 
     const { lottery_ticket, reward_point, current_coin } = user
@@ -72,7 +71,7 @@ module.exports = {
     const newLotteryTicket = lottery_ticket+2;
     const newRewardPoint = reward_point+2;
 
-    const updated = await Users.update({id: userId},
+    await Users.update({id: userId},
       {
         lottery_ticket: newLotteryTicket,
         reward_point: newRewardPoint,
@@ -80,14 +79,13 @@ module.exports = {
         latest_roll_time: currentTime
       }).fetch()
 
-    console.log('updated', updated);
-
     return {
       currentCoin,
       number: getFreeCoin.number,
-      coin: getFreeCoin.coin.toFixed(decimalConfig),
+      coin: getFreeCoin.coin.toFixed(setting.DECIMAL_CONFIG),
       lotteryTicket: newLotteryTicket,
-      rewardPoint: newRewardPoint
+      rewardPoint: newRewardPoint,
+      expiredTime: moment().add(setting.ADD_TIME_AMOUNT, setting.ADD_TIME_UNIT)
     }
   },
 

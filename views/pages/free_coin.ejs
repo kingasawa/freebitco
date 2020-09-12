@@ -1,4 +1,4 @@
-<body>
+<body onload="freeCoinCountdown()">
 <%- partial ('../pages/partials/menu_with_login.ejs', {data: "khanh"}) %>
 
 <div id="freeBitcoinPage" class="container">
@@ -64,14 +64,13 @@
       </tbody>
     </table>
   </div>
-
   <div class="section showCountdown hidden">
     <div class="ui checkbox">
       <input type="checkbox" name="example">
       <label>Play sound when timer runs out (TEST SOUND)</label>
     </div>
 
-    <div class="latestRollTime hidden"><%= data.latestRollTime %></div>
+    <div class="expiredTime hidden"><%= data.expiredTime %></div>
 
     <div class="date_count_down" style="max-width:400px; margin: 15px auto">
       <div class="ui four statistics">
@@ -101,7 +100,7 @@
 
   <div class="rollResponse" style="margin:15px auto; max-width: 600px"></div>
 
-  <div class="section showRoll">
+  <div class="section showRoll hidden">
     <form id="requestRoll">
       <div class="g-recaptcha" data-sitekey="6LetQcIZAAAAAI_7HFSamc53qiygzSnozw18a6VJ"></div>
       <button type="submit" class="positive ui facebook button">

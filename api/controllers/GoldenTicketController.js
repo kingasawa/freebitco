@@ -6,7 +6,17 @@
  */
 module.exports = {
   index: async(req,res) => {
-    return res.view('pages/golden_ticket');
+    const data = await Tickets.fetchAll({userId: req.user.id})
+    return res.view('pages/golden_ticket', {data});
+  },
+
+  buy: async(req,res) => {
+    console.log('req.allParams()', req.allParams());
+    const { numberTickets } = req.allParams()
+    const userId = req.user.id
+
+    const buyTicket = await Tickets.buy({numberTickets, userId})
+    return res.json(buyTicket)
   },
 
 };

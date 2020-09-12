@@ -1,4 +1,4 @@
-<body>
+<body onload="golderTicketCountdown()">
 <%- partial ('../pages/partials/menu_with_login.ejs') %>
 
   <div id="goldenTicketPage" class="container">
@@ -7,25 +7,26 @@
       <button class="ui yellow button">WITHDRAW</button>
     </div>
 
+    <div class="expiredTime hidden"><%= data.expiredTime %></div>
     <div class="section" style="margin-top:30px">
       <img class="ui fluid image" src="https://sirv.freebitco.in/1588206672_UtVElxC0.jpg">
       <h2>A LUCKY WINNER WILL DRIVE HOME A LAMBORGHINI <br />WHEN THIS COUNTDOWN ENDS!</h2>
-      <div class="date_count_down" style="width:320px; margin: 0 auto">
-        <div class="ui statistics">
+      <div class="date_count_down" style="max-width:400px; margin: 15px auto">
+        <div class="ui four statistics">
           <div class="red statistic">
-            <div class="value">20</div>
+            <div class="value countdownDays"></div>
             <div class="label">Days</div>
           </div>
           <div class="orange statistic">
-            <div class="value">8</div>
+            <div class="value countdownHours"></div>
             <div class="label">Hours</div>
           </div>
           <div class="yellow statistic">
-            <div class="value">28</div>
+            <div class="value countdownMinutes"></div>
             <div class="label">Minutes</div>
           </div>
           <div class="yellow statistic">
-            <div class="value">7</div>
+            <div class="value countdownSeconds"></div>
             <div class="label">Seconds</div>
           </div>
         </div>
@@ -81,14 +82,14 @@
         </thead>
         <tbody>
         <tr>
-          <td>
-            0
+          <td class="totalUserTickets">
+            <%= data.totalUserTickets %>
           </td>
-          <td>
-            23,929,220
+          <td class="totalTickets">
+            <%= data.totalTickets %>
           </td>
-          <td>
-            0.00000000%
+          <td class="winChange">
+            <%= data.winChange.toFixed(2) %>%
           </td>
         </tr>
         </tbody>
@@ -105,7 +106,7 @@
             <div class="item">
               <div class="right floated content">
                 <div class="ui input">
-                  <input type="text">
+                  <input name="no_of_tickets" type="number" value="0">
                 </div>
               </div>
               <div style="line-height: 42px">
@@ -115,7 +116,7 @@
             <div class="item">
               <div class="right floated content">
                 <div class="ui input">
-                  <input type="text" disabled>
+                  <input type="text" name="price_per_ticket" value="<%= data.price_per_ticket %>" disabled>
                 </div>
               </div>
               <div style="line-height: 42px">
@@ -125,7 +126,7 @@
             <div class="item">
               <div class="right floated content">
                 <div class="ui input">
-                  <input type="text" disabled>
+                  <input type="text" name="total_amount_price" value="" disabled>
                 </div>
               </div>
               <div style="line-height: 42px">
@@ -133,7 +134,10 @@
               </div>
             </div>
             <div class="item">
-              <button class="ui green button" style="margin-top: 10px;width: 100px;">BUY</button>
+              <button class="ui green button buyGoldenTicket" style="margin-top: 10px;width: 100px;">
+<!--                <i class="plus icon"></i>-->
+                BUY
+              </button>
             </div>
           </div>
         </div>
@@ -148,7 +152,7 @@
             ROUND 2
           </div>
           <div class="ui segment">
-            TOTAL TICKETS: 5,580,335
+            TOTAL TICKETS: <%= data.lastTotalTickets %>
           </div>
           <div class="ui horizontal segments">
             <table class="ui table center aligned">
@@ -162,14 +166,14 @@
               <tbody>
               <tr>
                 <td>
-                  13562178
+                  <%= data.lastWinner.id %>
                 </td>
                 <td>
                   <i class="ui bitcoin icon"></i>
-                  24.71708210
+                  <%= data.amountWon %>
                 </td>
                 <td>
-                  201,566
+                  <%= data.totalWinnerTickets %>
                 </td>
               </tr>
               </tbody>

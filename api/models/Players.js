@@ -18,7 +18,7 @@ module.exports = {
       defaultsTo: false
     },
     ticket: {
-      model: 'goldentickets'
+      model: 'tickets'
     }
   },
 

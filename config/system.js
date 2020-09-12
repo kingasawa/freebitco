@@ -8,19 +8,19 @@
  * https://sailsjs.com/config/custom
  */
 
-module.exports.custom = {
+module.exports.system = {
 
   /***************************************************************************
   *                                                                          *
   * Any other custom config this Sails app should use during development.    *
   *                                                                          *
   ***************************************************************************/
-  // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
-  // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
-  // …
 
-  errorMessage: {
-    INSUFFICIENT: "Insufficient balance to purchase"
+  setting: {
+    PRICE_PER_TICKET: 0.00025000,
+    DECIMAL_CONFIG: 8,
+    ADD_TIME_AMOUNT: 60,
+    ADD_TIME_UNIT: 'minutes'
   }
 
 };

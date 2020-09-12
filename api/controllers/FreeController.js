@@ -16,35 +16,24 @@ var recaptcha = new reCAPTCHA({
 module.exports = {
   index: async(req,res) => {
     const latestRollTime = req.user.latest_roll_time
-    const canRoll = (moment(latestRollTime).add(60, 'minutes') < moment())
+    const expiredTime = moment(latestRollTime).add(60, 'minutes')
+    const canRoll = expiredTime < moment()
     const data = {
-      latestRollTime,
+      expiredTime,
       canRoll
     }
     return res.view('pages/free_coin', {data});
   },
 
   roll: async(req,res) => {
-    // if(ENV_TEST) {
-    //   return await Users.submitRoll(user.id)
-    // }
-
-    const params = req.allParams();
-    console.log('params', params);
-
     const capcha = req.body['g-recaptcha-response']
     recaptcha.validate(capcha)
       .then(async() => {
-        console.log('validated');
         const user = req.user
         const data = await Users.submitRoll(user.id)
-        console.log('data', data);
         return res.json(data)
-        // validated and secure
       })
       .catch(function(errorCodes){
-        // invalid
-        console.log(recaptcha.translateErrors(errorCodes)); // translate error codes to human readable text
         return res.json({
           error: 1,
           message: 'reCAPTCHA is incorrect or has expired. Please try again.'
