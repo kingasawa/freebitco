@@ -75,7 +75,7 @@ module.exports = {
       {
         lottery_ticket: newLotteryTicket,
         reward_point: newRewardPoint,
-        current_coin: currentCoin,
+        current_coin: currentCoin.toFixed(8),
         latest_roll_time: currentTime
       }).fetch()
 
