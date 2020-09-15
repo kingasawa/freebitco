@@ -17,7 +17,8 @@ module.exports.system = {
   ***************************************************************************/
 
   setting: {
-    PRICE_PER_TICKET: 0.00025000,
+    PRICE_PER_GOLDEN_TICKET: 0.00025000,
+    PRICE_PER_LOTTERY_TICKET: 0.00000001,
     DECIMAL_CONFIG: 8,
     ADD_TIME_AMOUNT: 60,
     ADD_TIME_UNIT: 'minutes'

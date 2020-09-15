@@ -1,6 +1,6 @@
 
-function golderTicketCountdown() {
-  const expired = moment($('#goldenTicketPage .expiredTime').text());
+function lotteryCountdown() {
+  const expired = moment($('#lotteryPage .expiredTime').text());
   const expiredTime = moment(expired)
   const currentTime = moment();
   const diffTime = expiredTime - currentTime;
@@ -11,42 +11,41 @@ function golderTicketCountdown() {
   }
 }
 
-$('#goldenTicketPage input[name="no_of_tickets"]').keyup(function() {
+$('#lotteryPage input[name="no_of_tickets"]').keyup(function() {
   calTicketAmount()
 })
 
 function updateUserTicket(numberTickets) {
-  const totalUserTickets = $('#goldenTicketPage td.totalUserTickets').text()
-  const totalTickets = $('#goldenTicketPage td.totalTickets').text()
+  const totalUserTickets = $('#lotteryPage td.totalUserTickets').text()
+  const totalTickets = $('#lotteryPage td.totalTickets').text()
 
   const updatedTotalUserTickets = parseFloat(totalUserTickets) + numberTickets
   const updatedTotalTickets = parseFloat(totalTickets) + numberTickets
   const updatedWinChange = (updatedTotalUserTickets / updatedTotalTickets) * 100
 
-  $('#goldenTicketPage td.totalUserTickets').text(updatedTotalUserTickets)
-  $('#goldenTicketPage td.totalTickets').text(updatedTotalTickets)
-  $('#goldenTicketPage td.winChange').text(`${updatedWinChange.toFixed(2)}%`)
+  $('#lotteryPage td.totalUserTickets').text(updatedTotalUserTickets)
+  $('#lotteryPage td.totalTickets').text(updatedTotalTickets)
+  $('#lotteryPage td.winChange').text(`${updatedWinChange.toFixed(2)}%`)
 }
 
 function calTicketAmount() {
-  const numberTickets = $('#goldenTicketPage input[name="no_of_tickets"]').val()
-  const pricePerTicket = $('#goldenTicketPage input[name="price_per_ticket"]').val()
+  const numberTickets = $('#lotteryPage input[name="no_of_tickets"]').val()
+  const pricePerTicket = $('#lotteryPage input[name="price_per_ticket"]').val()
   const totalAmountPrice = numberTickets * pricePerTicket
 
-  $('#goldenTicketPage input[name="total_amount_price"]').val(totalAmountPrice)
+  $('#lotteryPage input[name="total_amount_price"]').val(totalAmountPrice.toFixed(8))
 }
 
-$('button.buyGoldenTicket').click(function(){
+$('button.buyLotteryTicket').click(function(){
 
-  const numberTickets = $('#goldenTicketPage input[name="no_of_tickets"]').val()
-  const pricePerTicket = $('#goldenTicketPage input[name="price_per_ticket"]').val()
+  const numberTickets = $('#lotteryPage input[name="no_of_tickets"]').val()
+  const pricePerTicket = $('#lotteryPage input[name="price_per_ticket"]').val()
   const totalAmountPrice = numberTickets * parseFloat(pricePerTicket)
   const currentCoin = $('#homeMenu .currentCoin').text()
 
   if (parseInt(numberTickets) === 0) return false;
 
   $(this).attr("disabled", true);
-  console.log('sdasdasa');
   const InsufficientError = {
     text: `BUY ERROR: Insufficient balance to purchase ${numberTickets} tickets.`,
     type: 'error',
@@ -57,7 +56,7 @@ $('button.buyGoldenTicket').click(function(){
     return noty(InsufficientError);
   }
 
-  $.post('/golden-ticket', {numberTickets}, function( result ) {
+  $.post('/lottery', {numberTickets}, function( result ) {
     if (result.error) {
       return noty({
         text: result.message,
@@ -67,6 +66,6 @@ $('button.buyGoldenTicket').click(function(){
 
     updateUserTicket(parseInt(numberTickets));
     $('#homeMenu .currentCoin').text(result.data.updatedCurrentCoin)
-    $('button.buyGoldenTicket').attr("disabled", false);
+    $('button.buyLotteryTicket').attr("disabled", false);
   })
 })

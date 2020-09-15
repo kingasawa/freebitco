@@ -39,7 +39,6 @@ module.exports.routes = {
 
   'GET /earn': 'EarnController.index',
   'GET /contest': 'ContestController.index',
-  'GET /lottery': 'LotteryController.index',
   'GET /referral': 'ReferralController.index',
   'GET /betting': 'BettingController.index',
   'GET /multiple-coin': 'MultipleCoinController.index',
@@ -52,6 +51,10 @@ module.exports.routes = {
   'GET /golden-ticket': 'GoldenTicketController.index',
   'POST /golden-ticket': 'GoldenTicketController.buy',
 
+  // Lottery
+  'GET /lottery': 'LotteryController.index',
+  'GET /lottery/random': 'LotteryController.random',
+  'POST /lottery': 'LotteryController.buy',
 
   /***************************************************************************
   *                                                                          *

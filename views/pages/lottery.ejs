@@ -1,7 +1,7 @@
-<body>
+<body onload="lotteryCountdown()">
 <%- partial ('../pages/partials/menu_with_login.ejs') %>
 
-<div id="freeBitcoinPage" class="container">
+<div id="lotteryPage" class="container">
   <div class="section">
     <button class="ui green button">DEPOSIT</button>
     <button class="ui yellow button">WITHDRAW</button>
@@ -11,7 +11,7 @@
     <h3>Participate in our weekly lottery draw and win big prizes!</h3>
     <h3 class="ui red header">Receive 2 free lottery tickets for every FREE BTC roll you play, 1 ticket for every roll your referrals play and 1 ticket for every 0.00000500 BTC that you wager in the MULTIPLY BTC game!</h3>
     <h3>THIS LOTTERY IS PROVABLY FAIR!</h3>
-    <h2>PRIZES FOR LOTTERY ROUND 271</h2>
+    <h2>PRIZES FOR LOTTERY ROUND <%= data.currentRound %></h2>
     </div>
 
 
@@ -108,24 +108,27 @@
         </tbody>
       </table>
 
-      <h3>LOTTERY ROUND 271 ENDS IN</h3>
-      <div class="date_count_down" style="width:320px; margin: 0 auto">
-        <div class="ui statistics">
-          <div class="red statistic">
-            <div class="value">20</div>
-            <div class="label">Days</div>
-          </div>
-          <div class="orange statistic">
-            <div class="value">8</div>
-            <div class="label">Hours</div>
-          </div>
-          <div class="yellow statistic">
-            <div class="value">28</div>
-            <div class="label">Minutes</div>
-          </div>
-          <div class="yellow statistic">
-            <div class="value">7</div>
-            <div class="label">Seconds</div>
+      <h3>LOTTERY ROUND <%= data.currentRound %> ENDS IN</h3>
+      <div class="expiredTime hidden"><%= data.expiredTime %></div>
+      <div class="section" style="margin-top:30px">
+        <div class="date_count_down" style="max-width:400px; margin: 15px auto">
+          <div class="ui four statistics">
+            <div class="red statistic">
+              <div class="value countdownDays"></div>
+              <div class="label">Days</div>
+            </div>
+            <div class="orange statistic">
+              <div class="value countdownHours"></div>
+              <div class="label">Hours</div>
+            </div>
+            <div class="yellow statistic">
+              <div class="value countdownMinutes"></div>
+              <div class="label">Minutes</div>
+            </div>
+            <div class="yellow statistic">
+              <div class="value countdownSeconds"></div>
+              <div class="label">Seconds</div>
+            </div>
           </div>
         </div>
       </div>
@@ -143,14 +146,14 @@
       </thead>
       <tbody>
       <tr>
-        <td>
-          0
+        <td class="totalUserTickets">
+          <%= data.totalUserTickets %>
         </td>
-        <td>
-          23,929,220
+        <td class="totalTickets">
+          <%= data.totalTickets %>
         </td>
-        <td>
-          0.00000000%
+        <td class="winChange">
+          <%= data.winChange.toFixed(2) %>%
         </td>
       </tr>
       </tbody>
@@ -167,7 +170,7 @@
           <div class="item">
             <div class="right floated content">
               <div class="ui input">
-                <input type="text">
+                <input name="no_of_tickets" type="number" value="0">
               </div>
             </div>
             <div style="line-height: 42px">
@@ -177,7 +180,7 @@
           <div class="item">
             <div class="right floated content">
               <div class="ui input">
-                <input type="text" disabled>
+                <input type="number" name="price_per_ticket" value="<%= data.price_per_ticket %>" disabled>
               </div>
             </div>
             <div style="line-height: 42px">
@@ -187,7 +190,7 @@
           <div class="item">
             <div class="right floated content">
               <div class="ui input">
-                <input type="text" disabled>
+                <input type="text" name="total_amount_price" value="" disabled>
               </div>
             </div>
             <div style="line-height: 42px">
@@ -195,7 +198,7 @@
             </div>
           </div>
           <div class="item">
-            <button class="ui green button" style="margin-top: 10px;width: 100px;">BUY</button>
+            <button class="buyLotteryTicket ui green button" style="margin-top: 10px;width: 100px;">BUY</button>
           </div>
         </div>
       </div>
@@ -224,7 +227,7 @@
   <div class="section">
     <div class="personal_stats" style="max-width:600px; margin:15px auto">
       <div class="round-winner ui top attached message">
-        CONTEST ROUND 25 WINNERS
+        CONTEST ROUND <%= data.lastRound %> WINNERS
       </div>
 
       <div class="ui attached segment">
