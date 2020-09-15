@@ -65,7 +65,7 @@ $('button.buyLotteryTicket').click(function(){
     }
 
     updateUserTicket(parseInt(numberTickets));
-    $('#homeMenu .currentCoin').text(result.data.updatedCurrentCoin)
+    $('#homeMenu .currentCoin').text(`${result.data.updatedCurrentCoin} ILU`)
     $('button.buyLotteryTicket').attr("disabled", false);
   })
 })
