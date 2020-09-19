@@ -28,7 +28,8 @@ module.exports = {
 
   register: async(req, res) => {
     let {referrer,password,email} = req.allParams()
-    console.log('params', req.allParams());
+    const checkExisted = await Users.findOne({email})
+    if (checkExisted) return res.json({error: 'email is registered, please choose other email'})
     Users.create({email,password,referrer}).then(()=>{
       return res.redirect(`/auth/login?email=${email}`);
     }).catch((err)=>{

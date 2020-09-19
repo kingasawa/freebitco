@@ -1,3 +1,52 @@
+const TIMEOUT = 1200
+
+function lotteryPageLoad() {
+  lotteryCountdown();
+  updateLotteryBoard();
+  setInterval(function(){
+    const randomNum = Math.floor(Math.random() * 10) + 1;
+    $.post('/lottery/random', {}, function( result ) {
+      // console.log('resultxxx', result);
+      updateTotalTicket(result.buyTicket);
+      updateLotteryBoard();
+      updateUserWinChange();
+      });
+  }, TIMEOUT);
+}
+
+function updateTotalTicket(numberTicket) {
+  const totalTickets = $('#lotteryPage td.totalTickets').text()
+  const currentTotalTicket = parseInt(totalTickets) + numberTicket
+  $('#lotteryPage td.totalTickets').text(currentTotalTicket)
+}
+
+function updateLotteryBoard() {
+  const totalTickets = $('#lotteryPage td.totalTickets').text()
+  const pricePerTicket = $('#lotteryPage input[name="price_per_ticket"]').val()
+  const totalAmountPrice = totalTickets * pricePerTicket
+  const realAmount = totalAmountPrice * 0.9 // -10%
+  const first = (realAmount / 10).toFixed(10)
+  const second = (first / 2).toFixed(10)
+  const third = (second / 2).toFixed(10)
+  const fourth = (third / 2).toFixed(10)
+  const fifth = (fourth / 2).toFixed(10)
+  const sixth = (fifth / 2).toFixed(10)
+  const seventh = (sixth / 2).toFixed(10)
+  const eighth = (seventh / 2).toFixed(10)
+  const ninth = (eighth / 2).toFixed(10)
+  const tenth = (ninth / 2).toFixed(10)
+
+  $('#lotteryPage span.first').text(first);
+  $('#lotteryPage span.second').text(second);
+  $('#lotteryPage span.third').text(third);
+  $('#lotteryPage span.fourth').text(fourth);
+  $('#lotteryPage span.fifth').text(fifth);
+  $('#lotteryPage span.sixth').text(sixth);
+  $('#lotteryPage span.seventh').text(seventh);
+  $('#lotteryPage span.eighth').text(eighth);
+  $('#lotteryPage span.ninth').text(ninth);
+  $('#lotteryPage span.tenth').text(tenth);
+}
 
 function lotteryCountdown() {
   const expired = moment($('#lotteryPage .expiredTime').text());
@@ -15,16 +64,21 @@ $('#lotteryPage input[name="no_of_tickets"]').keyup(function() {
   calTicketAmount()
 })
 
+function updateUserWinChange() {
+  const totalUserTickets = $('#lotteryPage td.totalUserTickets').text()
+  const totalTickets = $('#lotteryPage td.totalTickets').text()
+  const updatedWinChange = (parseInt(totalUserTickets) / parseInt(totalTickets)) * 100
+  $('#lotteryPage td.winChange').text(`${updatedWinChange.toFixed(2)}%`)
+}
+
 function updateUserTicket(numberTickets) {
   const totalUserTickets = $('#lotteryPage td.totalUserTickets').text()
   const totalTickets = $('#lotteryPage td.totalTickets').text()
 
   const updatedTotalUserTickets = parseFloat(totalUserTickets) + numberTickets
-  const updatedTotalTickets = parseFloat(totalTickets) + numberTickets
-  const updatedWinChange = (updatedTotalUserTickets / updatedTotalTickets) * 100
+  const updatedWinChange = (totalTickets / updatedTotalTickets) * 100
 
   $('#lotteryPage td.totalUserTickets').text(updatedTotalUserTickets)
-  $('#lotteryPage td.totalTickets').text(updatedTotalTickets)
   $('#lotteryPage td.winChange').text(`${updatedWinChange.toFixed(2)}%`)
 }
 
@@ -64,6 +118,8 @@ $('button.buyLotteryTicket').click(function(){
       });
     }
 
+    updateTotalTicket();
+    updateLotteryBoard()
     updateUserTicket(parseInt(numberTickets));
     $('#homeMenu .currentCoin').text(`${result.data.updatedCurrentCoin} ILU`)
     $('button.buyLotteryTicket').attr("disabled", false);

@@ -10,6 +10,10 @@ const { setting } = sails.config.system;
 
 module.exports = {
   attributes: {
+    human: {
+      type: 'boolean',
+      defaultsTo: true
+    },
     email: {
       type: 'string'
     },
@@ -26,10 +30,12 @@ module.exports = {
       type: 'number'
     },
     referrer: {
-      type: 'string'
+      type: 'string',
+      allowNull: true
     },
     latest_roll_time: {
-      type: 'string'
+      type: 'string',
+      allowNull: true
     },
     roll: {
       type: 'number',

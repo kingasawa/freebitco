@@ -53,8 +53,8 @@ module.exports.routes = {
 
   // Lottery
   'GET /lottery': 'LotteryController.index',
-  'GET /lottery/random': 'LotteryController.random',
   'POST /lottery': 'LotteryController.buy',
+  'POST /lottery/random': 'LotteryController.random',
 
   /***************************************************************************
   *                                                                          *

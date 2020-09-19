@@ -6,7 +6,7 @@
  */
 module.exports = {
   random: async(req,res) => {
-    const data = await Lotteries.getRandomWinner()
+    const data = await Lotteries.botBuyRandom()
     return res.json(data)
   },
 

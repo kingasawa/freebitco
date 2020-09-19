@@ -124,11 +124,23 @@ module.exports = {
     const currentRoundId = currentRound[0].id
 
     try {
-      await LotteryPlayers.create({
+      const condition = {
         user_id: userId,
-        number_ticket: numberTickets,
         lottery: currentRoundId
-      })
+      }
+      const playerExisted = await LotteryPlayers.findOne(condition)
+      console.log('playerExisted', playerExisted);
+      if (!playerExisted) {
+        await LotteryPlayers.create({
+          user_id: userId,
+          number_ticket: numberTickets,
+          lottery: currentRoundId
+        })
+      } else {
+        await LotteryPlayers.update(condition).set({
+          number_ticket: playerExisted.number_ticket + numberTickets,
+        })
+      }
 
       await Users.update({ id: userId }).set({
         current_coin: updatedCurrentCoin
@@ -136,7 +148,9 @@ module.exports = {
 
       const buyTicketSuccess = {
         success: true,
-        data: { updatedCurrentCoin: updatedCurrentCoin.toFixed(8)}
+        data: {
+          updatedCurrentCoin: updatedCurrentCoin.toFixed(8)
+        }
       }
 
       return buyTicketSuccess
@@ -149,6 +163,25 @@ module.exports = {
       }
     }
   },
+
+  botBuyRandom: async() => {
+    const users = await Users.find({
+      where: {human: false},
+      select: ['id']
+    })
+    const randomIndex = Math.floor(Math.random() * (users.length));
+    const randomUser = users[randomIndex]
+
+    const randomTicket = Math.floor(Math.random() * 10);
+    const buyTicket = await Lotteries.buy({
+      userId: randomUser.id, numberTickets: randomTicket
+    })
+    return {
+      user: randomUser,
+      buyTicket: randomTicket
+    }
+  },
+
 
 
 };
