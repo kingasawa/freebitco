@@ -44,6 +44,10 @@ module.exports = {
     wallets: {
       collection: 'wallets',
       via: 'user'
+    },
+    dices: {
+      collection: 'dices',
+      via: 'user'
     }
   },
 
@@ -94,6 +98,19 @@ module.exports = {
       expiredTime: moment().add(setting.ADD_TIME_AMOUNT, setting.ADD_TIME_UNIT)
     }
   },
+
+  updateCoin: async({userId, type, coin}) => {
+    const user = await Users.findOne({id:userId})
+    const currentCoin = user.current_coin
+    let updatedCoin = 0
+
+    if (type === 'add') updatedCoin = currentCoin + coin
+    else updatedCoin = currentCoin - coin
+
+    return await Users.update({id: userId},
+      { current_coin: updatedCoin }).fetch()
+  },
+
 
 };
 

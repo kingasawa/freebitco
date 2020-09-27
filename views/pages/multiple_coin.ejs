@@ -21,7 +21,7 @@
     </div>
 
 
-    <div class="ui bottom attached tab segment active" data-tab="manualBet">
+    <div id="manualBet" class="ui bottom attached tab segment active" data-tab="manualBet">
         <div class="ui stackable two column grid">
           <div class="column leftColumn">
             <div class="ui top attached segment green-header">
@@ -33,19 +33,22 @@
 
             <div class="ui horizontal segments" style="">
               <div class="ui segment bet-amount">BET AMOUNT</div>
-              <div class="ui segment bet-count">/2</div>
-              <div class="ui segment bet-count">2x</div>
-              <div class="ui segment bet-count">MIN</div>
-              <div class="ui segment bet-count">MAX</div>
+              <div id="divided2" class="ui segment bet-count-button">/2</div>
+              <div id="multiply2" class="ui segment bet-count-button">2x</div>
+              <div id="getMin" class="ui segment bet-count-button">MIN</div>
+              <div id="getMax" class="ui segment bet-count-button">MAX</div>
             </div>
             <div class="ui attached segment">
-              <p>0.00000001</p>
+              <div class="ui fluid icon input">
+                <input name="betAmount" type="text" value="0.00000001" pattern="\d*" maxlength="10">
+                <i class="money icon"></i>
+              </div>
             </div>
             <div class="ui left fluid action input" style="margin-top:14px;">
               <button class="large ui button">
                 WIN PROFIT
               </button>
-              <input type="text" value="0.00000001">
+              <input name="winProfit" type="text" value="0.00000001">
             </div>
             <div class="ui horizontal segments">
               <div class="ui segment">
@@ -57,7 +60,7 @@
                 </div>
                 <div class="ui attached segment">
                   <div class="ui fluid input">
-                    <input type="text" value="6.00" style="text-align: center">
+                    <input name="betOdd" type="text" pattern="\d*" value="2" style="text-align: center">
                   </div>
                 </div>
               </div>
@@ -70,7 +73,7 @@
                 </div>
                 <div class="ui attached segment">
                   <div class="ui fluid input">
-                    <input type="text" value="15.83%" style="text-align: center">
+                    <input name="winChange" type="text" value="47.50%" style="text-align: center" disabled>
                   </div>
                 </div>
               </div>
@@ -82,7 +85,7 @@
               <h3>PLAY FOR JACKPOTS</h3>
               <p>Roll number 8888 to win the jackpots!</p>
             </div>
-            <table class="ui celled table center aligned">
+            <table id="playJackpot" class="ui celled table center aligned">
               <thead>
               <tr>
                 <th>SELECT</th>
@@ -92,36 +95,36 @@
               </thead>
               <tbody>
               <tr>
-                <td data-label="Name">
-                  <input type="checkbox" name="example">
+                <td data-label="jackpot1">
+                  <input type="checkbox" data="jackpot1" name="jackpot" value="1">
                 </td>
                 <td data-label="Age">1.00000000</td>
                 <td data-label="Job">0.00012500</td>
               </tr>
               <tr>
-                <td data-label="Name">
-                  <input type="checkbox" name="example">
+                <td data-label="jackpot2">
+                  <input type="checkbox" data="jackpot2" name="jackpot" value="2">
                 </td>
                 <td data-label="Age">0.10000000</td>
                 <td data-label="Job">0.00001250</td>
               </tr>
               <tr>
-                <td data-label="Name">
-                  <input type="checkbox" name="example">
+                <td data-label="jackpot3">
+                  <input type="checkbox" name="jackpot" value="3">
                 </td>
                 <td data-label="Age">0.01000000</td>
                 <td data-label="Job">0.00000125</td>
               </tr>
               <tr>
-                <td data-label="Name">
-                  <input type="checkbox" name="example">
+                <td data-label="jackpot4">
+                  <input type="checkbox" name="jackpot" value="4">
                 </td>
                 <td data-label="Age">0.00100000</td>
                 <td data-label="Job">0.00000013</td>
               </tr>
               <tr>
-                <td data-label="Name">
-                  <input type="checkbox" name="example">
+                <td data-label="jackpot5">
+                  <input type="checkbox" name="jackpot" value="5">
                 </td>
                 <td data-label="Age">0.00010000</td>
                 <td data-label="Job">0.00000002</td>
@@ -144,8 +147,8 @@
           <span id="fifthJackpotNumber" class="jackpotNumber">0</span>
         </div>
         <div class="section">
-          <button class="ui yellow button">BET HIGH</button>
-          <button class="ui yellow button">BET LOW</button>
+          <button id="betHigh" class="ui yellow button submit-bet-button">BET HIGH</button>
+          <button id="betLow" class="ui yellow button submit-bet-button">BET LOW</button>
         </div>
         <div class="section">
           <p>
@@ -423,9 +426,9 @@
           ROLL HISTORY
         </div>
 
-        <div class="ui attached segment">
-          DATE: 18/08/2020
-        </div>
+<!--        <div class="ui attached segment">-->
+<!--          DATE: 18/08/2020-->
+<!--        </div>-->
 
         <table class="ui bottom attached celled table center aligned">
           <thead>
@@ -442,17 +445,19 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td data-label="Name">19:56:40</td>
-            <td data-label="Age">DICE</td>
-            <td data-label="Job">LO</td>
-            <td data-label="Job">477</td>
-            <td data-label="Job">0.00000001</td>
-            <td data-label="Job">2.00</td>
-            <td data-label="Job">0.00000001</td>
-            <td data-label="Job"><i class="ui close icon"></i></td>
-            <td data-label="Job">CLICK</td>
-          </tr>
+          <% gameHistory.forEach(function(history){ %>
+            <tr>
+              <td data-label="Name"><%- moment(history.time).fromNow() %></td>
+              <td data-label="Age"><%= history.game %></td>
+              <td data-label="Job"><%= history.bet %></td>
+              <td data-label="Job"><%= history.roll %></td>
+              <td data-label="Job"><%= history.stake.toFixed(8) %></td>
+              <td data-label="Job"><%= history.mult.toFixed(2) %></td>
+              <td data-label="Job"><%= history.profit.toFixed(8) %></td>
+              <td data-label="Job"><i class="ui close icon"></i></td>
+              <td data-label="Job"><%= history.ver.toUpperCase() %></td>
+            </tr>
+          <% }) %>
 
           </tbody>
         </table>
