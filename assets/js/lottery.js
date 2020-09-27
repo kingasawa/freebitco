@@ -76,7 +76,7 @@ function updateUserTicket(numberTickets) {
   const totalTickets = $('#lotteryPage td.totalTickets').text()
 
   const updatedTotalUserTickets = parseFloat(totalUserTickets) + numberTickets
-  const updatedWinChange = (totalTickets / updatedTotalTickets) * 100
+  const updatedWinChange = (totalTickets / updatedTotalUserTickets) * 100
 
   $('#lotteryPage td.totalUserTickets').text(updatedTotalUserTickets)
   $('#lotteryPage td.winChange').text(`${updatedWinChange.toFixed(2)}%`)
