@@ -8,7 +8,7 @@ const _ = require('lodash');
 const moment = require('moment');
 const { errorMessage } = sails.config.custom
 const { setting } = sails.config.system
-const runBot = false;
+const runBot = true;
 
 module.exports = {
   attributes: {
