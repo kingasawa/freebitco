@@ -16,7 +16,7 @@ function lotteryPageLoad() {
 
 function updateTotalTicket(numberTicket) {
   const totalTickets = $('#lotteryPage td.totalTickets').text()
-  const currentTotalTicket = parseInt(totalTickets) + numberTicket
+  const currentTotalTicket = parseInt(totalTickets) + parseInt(numberTicket)
   $('#lotteryPage td.totalTickets').text(currentTotalTicket)
 }
 
@@ -76,7 +76,7 @@ function updateUserTicket(numberTickets) {
   const totalTickets = $('#lotteryPage td.totalTickets').text()
 
   const updatedTotalUserTickets = parseFloat(totalUserTickets) + numberTickets
-  const updatedWinChange = (totalTickets / updatedTotalUserTickets) * 100
+  const updatedWinChange = (updatedTotalUserTickets / parseInt(totalTickets)) * 100
 
   $('#lotteryPage td.totalUserTickets').text(updatedTotalUserTickets)
   $('#lotteryPage td.winChange').text(`${updatedWinChange.toFixed(2)}%`)
@@ -118,7 +118,7 @@ $('button.buyLotteryTicket').click(function(){
       });
     }
 
-    updateTotalTicket();
+    updateTotalTicket(numberTickets);
     updateLotteryBoard()
     updateUserTicket(parseInt(numberTickets));
     $('#homeMenu .currentCoin').text(`${result.data.updatedCurrentCoin} ILU`)

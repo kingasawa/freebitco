@@ -8,6 +8,7 @@ const _ = require('lodash');
 const moment = require('moment');
 const { errorMessage } = sails.config.custom
 const { setting } = sails.config.system
+const runBot = false;
 
 module.exports = {
   attributes: {
@@ -129,6 +130,8 @@ module.exports = {
         lottery: currentRoundId
       }
       const playerExisted = await LotteryPlayers.findOne(condition)
+      const updatedNumberTicket = parseInt(playerExisted.number_ticket) + parseInt(numberTickets)
+      console.log('updatedNumberTicket', updatedNumberTicket);
       console.log('playerExisted', playerExisted);
       if (!playerExisted) {
         await LotteryPlayers.create({
@@ -138,7 +141,7 @@ module.exports = {
         })
       } else {
         await LotteryPlayers.update(condition).set({
-          number_ticket: playerExisted.number_ticket + numberTickets,
+          number_ticket: updatedNumberTicket,
         })
       }
 
@@ -165,20 +168,22 @@ module.exports = {
   },
 
   botBuyRandom: async() => {
-    const users = await Users.find({
-      where: {human: false},
-      select: ['id']
-    })
-    const randomIndex = Math.floor(Math.random() * (users.length));
-    const randomUser = users[randomIndex]
+    if(runBot) {
+      const users = await Users.find({
+        where: {human: false},
+        select: ['id']
+      })
+      const randomIndex = Math.floor(Math.random() * (users.length));
+      const randomUser = users[randomIndex]
 
-    const randomTicket = Math.floor(Math.random() * 10);
-    const buyTicket = await Lotteries.buy({
-      userId: randomUser.id, numberTickets: randomTicket
-    })
-    return {
-      user: randomUser,
-      buyTicket: randomTicket
+      const randomTicket = Math.floor(Math.random() * 10);
+      const buyTicket = await Lotteries.buy({
+        userId: randomUser.id, numberTickets: randomTicket
+      })
+      return {
+        user: randomUser,
+        buyTicket: randomTicket
+      }
     }
   },
 
