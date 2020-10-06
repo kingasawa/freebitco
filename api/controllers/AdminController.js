@@ -1,6 +1,10 @@
 const moment = require('moment');
 
 module.exports = {
+  index: function(req, res) {
+    return res.view('pages/admin/index')
+  },
+
   dashboard: function(req, res) {
     return res.view('pages/admin/dashboard')
   },

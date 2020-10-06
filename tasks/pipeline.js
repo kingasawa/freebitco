@@ -42,6 +42,7 @@ var cssFilesToInject = [
   'styles/**/*.css',
   'semantic/*.css',
   'noty/noty.css',
+  'chartjs/chart.min.css',
 ];
 
 
@@ -77,6 +78,7 @@ var jsFilesToInject = [
   // here, _above_ this one.
   'js/**/*.js',
   'noty/noty.min.js',
+  // 'chartjs/chart.min.js',
 ];
 
 

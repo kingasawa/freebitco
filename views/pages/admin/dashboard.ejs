@@ -1,16 +1,77 @@
-<div class="ui top attached demo menu">
-    <a class="item menu-open">
-        <i class="sidebar icon"></i>
-        Menu
-    </a>
-</div>
-<div class="ui bottom attached segment pushable">
+<body onload="getDashboard()">
+<div id="mainAdmin" class="ui grid">
     <%- partial ('menu.ejs') %>
 
-    <div class="pusher">
-        <div class="ui basic segment">
-            <h3 class="ui header">Dashboard</h3>
-            <p>updating...</p>
+    <div class="thirteen wide column">
+        <div id="admin-container">
+            <div class="page-statistics">
+                <div class="ui grid">
+                    <div class="doubling four column row">
+                        <div class="column">
+                            <div class="ui orange statistic item-statistics user-statistics">
+                                <div class="value">
+                                    5,550
+                                </div>
+                                <div class="label">
+                                    Users
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="ui olive statistic item-statistics">
+                                <div class="value">
+                                    71,230
+                                </div>
+                                <div class="label">
+                                    Golden Tickets
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="ui yellow statistic item-statistics">
+                                <div class="value">
+                                    384,839
+                                </div>
+                                <div class="label">
+                                    Lotteries Tickets
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="ui violet statistic item-statistics">
+                                <div class="value">
+                                    2,059
+                                </div>
+                                <div class="label">
+                                    Orders
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui grid" style="padding-right: 10px">
+                    <div class="ten wide column">
+                        <canvas id="lotteryTicketChart"></canvas>
+                    </div>
+                    <div class="six wide column">
+                        <table id="dashboardUserList" class="ui selectable inverted table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>EMAIL</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 </div>
+</body>

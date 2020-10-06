@@ -45,8 +45,9 @@ module.exports = {
     let updatedCoin = 0
     let type = 'subtract'
     let betResult = 'lose'
+    let resultMessage = '';
     const xWin = betOdd - 1
-    const lowNumber = 9500 / parseInt(betOdd)
+    const lowNumber = Math.ceil(9500 / parseInt(betOdd))
     const highNumber = 10000 - lowNumber
     const randomNumber = Math.floor(Math.random() * 10000);
     const profit = parseFloat(betAmount) * xWin
@@ -65,9 +66,11 @@ module.exports = {
       betResult = 'win'
       updatedCoin = profit
       type = 'add'
+      resultMessage = `You choose ${betType} so you win ${profit.toFixed(8)} ILU`
     } else {
-      updatedCoin = parseFloat(betAmount)
+      updatedCoin = parseFloat(betAmount).toFixed(8)
       type = 'subtract'
+      resultMessage = `You choose ${betType} so you lose ${betAmount} ILU`
     }
 
     const addHistory = await Dices.create({
@@ -87,7 +90,7 @@ module.exports = {
 
     const updated = await Users.updateCoin({userId, type, coin: updatedCoin})
     return {
-      randomNumber, betResult, highNumber, lowNumber,
+      randomNumber, betResult, highNumber, lowNumber, resultMessage,
       user: updated[0]
     }
   },
@@ -95,6 +98,7 @@ module.exports = {
   getGameHistory: async({userId}) => {
     const history = await Dices.find({
       where: { user: userId },
+      sort: 'createdAt DESC',
       limit: 20
     })
     return history

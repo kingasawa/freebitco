@@ -70,6 +70,10 @@ body {
     background: #ececec;
     font-weight: bold;
   }
+
+  .highNumber, .lowNumber {
+    font-weight: bold;
+  }
 }
 #bettingPage {
   .column {
@@ -255,4 +259,81 @@ div.bet-count-button:hover {
   background: -ms-linear-gradient(top,#45484d 0%,#000000 100%);
   background: linear-gradient(to bottom,#45484d 0%,#000000 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d',endColorstr='#000000',GradientType=0 );
+}
+
+.pusher {
+  background: #f2f2f2 !important;
+}
+#admin-container {
+  //max-width: 1024px;
+  padding:20px;
+  margin:0 auto;
+  .page-statistics {
+    .column {
+      padding-right: 10px;
+      //border:1px solid;
+    .item-statistics {
+      width: 98%;
+      background: #272727;
+      padding: 20px 0;
+      .label {
+        color: #fff;
+      }
+    }
+      .user-statistics {
+        //background-url: url('../images/ticket.png') no-repeat center;
+        //background-color:rgba(0, 0, 0, 0.5);
+        //background-image: url('../images/ticket.png');
+        //opacity: 0.4;
+        //background-size: cover;
+        //height: 500px;
+        //position: relative;
+      }
+
+    }
+  }
+}
+
+#mainAdmin {
+  margin-top:0px;
+  min-height: 100%;
+  background: #2d2d2d
+}
+
+#admin-menu {
+  background: #222;
+  //background: url('../images/admin_menu.png') no-repeat center;
+  padding: 0;
+  a.item {
+    border-radius: 0 !important;
+    padding-left: 30px;
+    color: #ccc;
+    line-height: 20px;
+    &:hover {
+      background: #1f1f1f;
+      .icon {
+        color: #fff;
+      }
+    }
+    .icon {
+      color: #868686;
+      margin-right: 10px;
+      float: none;
+    }
+  }
+  div.item-logo {
+    color: #ccc;
+    background: #1d1d1d;
+    padding: 15px;
+    border-radius: 0 !important;
+    text-align: center;
+  }
+  .menu {
+    //width:100%;
+  }
+}
+
+#myChart {
+  background: #272727;
+  padding: 10px;
 }

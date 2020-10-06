@@ -42,6 +42,18 @@ $(function(){
     $('#multipleCoinPage #fifthJackpotNumber').text(fifth)
   }
 
+  function countWinProfit(betAmount, betOdd) {
+    const winProfit = (betOdd - 1) * betAmount
+    $('#multipleCoinPage input[name="winProfit"]').val(winProfit.toFixed(8));
+  }
+
+  function updateRangeWin(odd) {
+    const lowNumber = Math.ceil(9500 / odd)
+    const highNumber = 10000 - lowNumber
+    $('#multipleCoinPage span.highNumber').text(highNumber)
+    $('#multipleCoinPage span.lowNumber').text(lowNumber)
+  }
+
   $('#multipleCoinPage #manualBet input[name="betAmount"]').keyup(function() {
     const betAmount = $('input[name="betAmount"]').val()
 
@@ -83,6 +95,7 @@ $(function(){
     $('input[name="winChange"]').val(`${updateWinchange.toFixed(2)}%`)
 
     countWinProfit(betAmount, currentBetOdd)
+    updateRangeWin(currentBetOdd)
   })
 
   $('button.submit-bet-button').click(function(e){
@@ -101,12 +114,13 @@ $(function(){
 
     $.post('/multiple-coin/manualBet', postData, function( result ) {
       console.log('result', result);
+
+      if(result.betResult === 'lose') {
+        $('#multipleCoinPage div.diceResult').html(`<div class="ui error message">${result.resultMessage}</div>`)
+      } else {
+        $('#multipleCoinPage div.diceResult').html(`<div class="ui success message">${result.resultMessage}</div>`)
+      }
       updateNumberJackpot(result.randomNumber)
     })
   })
 })
-
-function countWinProfit(betAmount, betOdd) {
-  const winProfit = (betOdd - 1) * betAmount
-  $('#multipleCoinPage input[name="winProfit"]').val(winProfit.toFixed(8));
-}

@@ -1,21 +1,14 @@
-<div id="adminPage">
-<div class="ui top attached demo menu">
-    <a class="item menu-open">
-        <i class="sidebar icon"></i>
-        Menu
-    </a>
-
-</div>
-<div class="ui bottom attached segment pushable">
+<body onload="getDashboard()">
+<div id="mainAdmin" class="ui grid">
     <%- partial ('menu.ejs') %>
 
-    <div class="pusher">
+    <div class="thirteen wide column">
         <div class="ui large breadcrumb">
             <a class="section" href="/admin">Dashboard</a>
             <i class="right angle icon divider"></i>
             <div class="active section">Betting</div>
         </div>
-        <div class="ui basic segment">
+        <div id="admin-container">
             <button class="ui right primary button">
                 <i class="ui plus icon"></i>
                 Add new bet
@@ -44,5 +37,53 @@
             </table>
         </div>
     </div>
+
 </div>
-</div>
+</body>
+
+
+
+
+<!--<div class="ui bottom attached segment pushable">-->
+
+<!--    <div class="pusher">-->
+<!--        <div class="ui large breadcrumb">-->
+<!--            <a class="section" href="/admin">Dashboard</a>-->
+<!--            <i class="right angle icon divider"></i>-->
+<!--            <div class="active section">Users</div>-->
+<!--        </div>-->
+<!--        <div class="ui basic segment">-->
+<!--            <button class="ui right primary button">-->
+<!--                <i class="ui plus icon"></i>-->
+<!--                Add new user-->
+<!--            </button>-->
+<!--            -->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<div id="adminPage">-->
+<!--<div class="ui top attached demo menu">-->
+<!--    <a class="item menu-open">-->
+<!--        <i class="sidebar icon"></i>-->
+<!--        Menu-->
+<!--    </a>-->
+
+<!--</div>-->
+<!--<div class="ui bottom attached segment pushable">-->
+
+<!--    <div class="pusher">-->
+<!--        <div class="ui large breadcrumb">-->
+<!--            <a class="section" href="/admin">Dashboard</a>-->
+<!--            <i class="right angle icon divider"></i>-->
+<!--            <div class="active section">Betting</div>-->
+<!--        </div>-->
+<!--        <div class="ui basic segment">-->
+
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->

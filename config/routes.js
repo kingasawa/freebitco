@@ -28,6 +28,7 @@ module.exports.routes = {
 
   // Common Page
   'GET /': 'HomeController.index',
+  'GET /getDashboard': 'DashboardController.index',
   'GET /wallet': 'WalletController.index',
   'GET /admin/golden_ticket/create': { view: 'pages/admin/create_golden_ticket' },
 
