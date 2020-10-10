@@ -17,10 +17,10 @@ $(function() {
     $(this).toggleClass("active");
   })
 
-  $('.menu-open').click(function() {
-    $('.ui.sidebar')
-      .sidebar('toggle');
-  })
+  // $('.menu-open').click(function() {
+  //   $('.ui.sidebar')
+  //     .sidebar('toggle');
+  // })
 
 
   // eslint-disable-next-line no-undef

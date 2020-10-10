@@ -11,7 +11,9 @@ passport.serializeUser((user, done)=> {
 //Passport deserializes the user by id and returns the full user object.
 passport.deserializeUser((user, done)=>{
   const id = user.id;
-  Users.findOne(id).exec((err,userData)=> {
+  Users.findOne(id).populate('wallets', {
+    where: { unit: 'btc' }
+  }).exec((err,userData)=> {
     done(err, userData);
   });
 });

@@ -28,8 +28,8 @@
                     <tr>
                         <td><%- bet.id %></td>
                         <td><%- bet.title %></td>
-                        <td><%- moment(bet.start_date).format('MMMM Do YYYY, h:mm:ss a') %></td>
-                        <td><%- moment(bet.end_date).format('MMMM Do YYYY, h:mm:ss a') %></td>
+                        <td><%- moment(bet.start_date).format('DD/MM/YYYY, H:mm:ss') %></td>
+                        <td><%- moment(bet.end_date).format('DD/MM/YYYY, H:mm:ss') %></td>
                         <td><%- bet.prize_pool %></td>
                     </tr>
                 <% }); %>

@@ -10,7 +10,7 @@
                         <div class="column">
                             <div class="ui orange statistic item-statistics user-statistics">
                                 <div class="value">
-                                    5,550
+                                    <%= data.userCount %>
                                 </div>
                                 <div class="label">
                                     Users
@@ -21,7 +21,7 @@
                         <div class="column">
                             <div class="ui olive statistic item-statistics">
                                 <div class="value">
-                                    71,230
+                                    <%= data.goldenTicketCount %>
                                 </div>
                                 <div class="label">
                                     Golden Tickets
@@ -32,7 +32,7 @@
                         <div class="column">
                             <div class="ui yellow statistic item-statistics">
                                 <div class="value">
-                                    384,839
+                                    <%= data.lotteryTicketCount %>
                                 </div>
                                 <div class="label">
                                     Lotteries Tickets
@@ -65,7 +65,14 @@
                                 <th>EMAIL</th>
                             </tr>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                            <% data.users.forEach(function(user){ %>
+                                <tr>
+                                    <td><%- user.id %></td>
+                                    <td><%- user.email %></td>
+                                </tr>
+                            <% }); %>
+                            </tbody>
                         </table>
                     </div>
                 </div>

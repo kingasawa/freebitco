@@ -67,7 +67,7 @@ module.exports = {
   },
 
   fetchAll: async() => {
-    return await Users.find()
+    return await Users.find().limit(10)
   },
 
   submitRoll: async(userId) => {
@@ -110,6 +110,33 @@ module.exports = {
     return await Users.update({id: userId},
       { current_coin: updatedCoin }).fetch()
   },
+
+  register: async({email, password, referrer}) => {
+    try {
+      const createdUser = await Users.create({email,password,referrer}).fetch()
+      const createdAddress = await BlockCypher.createAddress({email,password})
+      await Wallets.create({
+        unit: 'btc',
+        address: createdAddress.address,
+        public: createdAddress.public,
+        private: createdAddress.private,
+        wif: createdAddress.wif,
+        user: createdUser.id
+      })
+      return {
+        success: true,
+        data: { email }
+      }
+    }
+    catch(err) {
+      console.log('err', err);
+      return {
+        success: false,
+        data: { err }
+      }
+    }
+  },
+
 
 
 };

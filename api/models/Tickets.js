@@ -27,7 +27,14 @@ module.exports = {
     }
   },
 
-  fetchAll: async({userId}) => {
+  fetchAll: async() => {
+    const data = await Tickets.find({
+      sort: 'id DESC'
+    })
+    return data
+  },
+
+  fetchAllByUser: async({userId}) => {
     const data = await Tickets.find({
       limit: 2,
       sort: 'id DESC'

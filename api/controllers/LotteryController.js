@@ -11,7 +11,7 @@ module.exports = {
   },
 
   index: async(req,res) => {
-    const data = await Lotteries.fetchAll({userId: req.user.id})
+    const data = await Lotteries.fetchAllByUser({userId: req.user.id})
     return res.view('pages/lottery', {data});
   },
 

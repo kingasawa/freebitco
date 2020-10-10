@@ -15,20 +15,3 @@ const lotteryTicketChart = new Chart(lotteryTicketCtx, {
   },
   options: {}
 });
-
-function getDashboard() {
-  $.get('/getDashboard', function(result) {
-    console.log('result', result);
-    if (!result.data.error) {
-      result.data.users.map(function(user) {
-        $('table#dashboardUserList tbody')
-          .append(`
-            <tr>
-               <td>${user.id}</td>
-               <td>${user.email}</td>
-            </tr>
-        `)
-      })
-    }
-  })
-}

@@ -1,0 +1,83 @@
+<button id="paymentWithdraw" class="ui yellow button">WITHDRAW</button>
+
+<div id="withdrawModal" class="ui modal">
+    <div class="content" style="text-align: center">
+        <h2 class="ui header">WITHDRAW COINS</h2>
+        <h3>PLEASE SELECT A WITHDRAWAL OPTION</h3>
+
+        <div class="ui top attached tabular menu">
+            <a class="item" data-tab="autoWithdraw">AUTO</a>
+            <a class="item active" data-tab="instantWithdraw">INSTANT</a>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="autoWithdraw">
+            <div>
+                <div class="referral-commission ui top attached message" style="background:#54c8ff;color:#fff">
+                    MIN. WITHDRAW: 0.00030000 BTC
+                </div>
+                <table class="ui celled bottom attached center aligned table">
+                    <tbody>
+                    <tr>
+                        <td data-label="Name">FREQUENCY</td>
+                        <td data-label="Age">Every Sunday</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Age">TRANSACTION FEES</td>
+                        <td data-label="Job">0.00002751 BTC*</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" data-label="Age">
+                            Your Bitcoin address: <strong><%= req.user.wallets[0].address %></strong>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>* The auto-withdraw fee used will be the current slow withdraw fee at the time when payments are being made but will be limited to a maximum of 3,000 satoshi (0.00003000 BTC)</p>
+            </div>
+        </div>
+        <div class="ui bottom attached tab segment active" data-tab="instantWithdraw">
+            <div>
+                <div class="referral-commission ui top attached message" style="background:#54c8ff;color:#fff">
+                    MIN. WITHDRAW: 0.00030000 BTC
+                </div>
+                <table class="ui celled bottom attached center aligned table">
+                    <tbody>
+                    <tr>
+                        <td data-label="Name">TIME TAKEN</td>
+                        <td data-label="Age">~15 Minutes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Age">AMOUNT</td>
+                        <td data-label="Job">
+                            <div class="ui fluid input">
+                                <input type="text" placeholder="Enter withdrawal amount">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Age">TRANSACTION FEES</td>
+                        <td data-label="Job">0.00011692 BTC</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Age">AMOUNT DEDUCTED</td>
+                        <td data-label="Job">0.00000000 BTC</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" data-label="Age">
+                            BITCOIN ADDRESS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" data-label="Age">
+                            <div class="ui fluid input">
+                                <input type="text" placeholder="Enter your bitcoin address">
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button class="ui inverted orange button">WITHDRAW</button>
+            </div>
+        </div>
+
+    </div>
+</div>

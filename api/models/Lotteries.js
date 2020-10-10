@@ -64,7 +64,14 @@ module.exports = {
     return topTen
   },
 
-  fetchAll: async({userId}) => {
+  fetchAll: async() => {
+    const data = await Lotteries.find({
+      sort: 'id DESC'
+    })
+    return data
+  },
+
+  fetchAllByUser: async({userId}) => {
     const data = await Lotteries.find({
       limit: 2,
       sort: 'id DESC'

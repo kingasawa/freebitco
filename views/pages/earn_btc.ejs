@@ -2,9 +2,11 @@
 <%- partial ('../pages/partials/menu_with_login.ejs') %>
 
   <div id="freeILUPage" class="container">
-    <div class="section">
-      <button class="ui green button">DEPOSIT</button>
-      <button class="ui yellow button">WITHDRAW</button>
+    <div class="section payment">
+      <div class="payment-button">
+        <%- partial ('../pages/partials/deposit.ejs') %>
+        <%- partial ('../pages/partials/withdraw.ejs') %>
+      </div>
     </div>
 
     <div class="section" style="margin-top:30px">

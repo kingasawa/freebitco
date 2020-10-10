@@ -8,14 +8,14 @@
         <div class="ui large breadcrumb">
             <a class="section" href="/admin">Dashboard</a>
             <i class="right angle icon divider"></i>
-            <div class="active section">Golden Ticket</div>
+            <div class="active section">Lottery Ticket</div>
         </div>
         <div id="admin-container">
-            <button class="ui right yellow button">
+            <button class="ui right orange button">
                 <i class="ui plus icon"></i>
                 Add new round
             </button>
-            <table class="ui padded yellow table">
+            <table class="ui padded orange table">
                 <thead>
                 <tr>
                     <th>Round</th>
@@ -26,13 +26,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% goldenTickets.forEach(function(gt){ %>
+                <% lotteryTickets.forEach(function(lt){ %>
                     <tr>
-                        <td><%- gt.id %></td>
-                        <td><%- gt.title %></td>
-                        <td><%- gt.price %></td>
-                        <td><%- moment(gt.expired_at).format('DD/MM/YYYY, H:mm:ss') %></td>
-                        <td><%- gt.active %></td>
+                        <td><%- lt.id %></td>
+                        <td><%- lt.title %></td>
+                        <td><%- lt.price %></td>
+                        <td><%- moment(lt.expired_at).format('DD/MM/YYYY, H:mm:ss') %></td>
+                        <td><%- lt.active %></td>
                     </tr>
                 <% }); %>
                 </tbody>

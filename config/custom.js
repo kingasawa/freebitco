@@ -23,6 +23,8 @@ module.exports.custom = {
   ticketType: {
     GOLDEN_TICKET: 1,
     LOTTERY: 2
-  }
+  },
+
+  BLOCKCYPHER_TOKEN: '9866d89f8b7d4d4f93f1db3dfa26ac51'
 
 };

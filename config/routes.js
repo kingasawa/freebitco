@@ -37,6 +37,7 @@ module.exports.routes = {
   'GET /admin/users': 'AdminController.users',
   'GET /admin/betting': 'AdminController.betting',
   'GET /admin/golden_ticket': 'AdminController.goldenTicket',
+  'GET /admin/lottery_ticket': 'AdminController.lotteryTicket',
 
   'GET /earn': 'EarnController.index',
   'GET /contest': 'ContestController.index',

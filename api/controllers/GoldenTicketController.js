@@ -6,7 +6,7 @@
  */
 module.exports = {
   index: async(req,res) => {
-    const data = await Tickets.fetchAll({userId: req.user.id})
+    const data = await Tickets.fetchAllByUser({userId: req.user.id})
     return res.view('pages/golden_ticket', {data});
   },
 

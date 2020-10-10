@@ -5,8 +5,22 @@ module.exports = {
     return res.view('pages/admin/index')
   },
 
-  dashboard: function(req, res) {
-    return res.view('pages/admin/dashboard')
+  dashboard: async(req, res) => {
+    const users = await Users.fetchAll();
+    const userCount = await Users.count()
+    const goldenTicketCount = await Players.sum('number_ticket')
+    const lotteryTicketCount = await LotteryPlayers.sum('number_ticket')
+
+    const data = {
+      users,
+      userCount,
+      goldenTicketCount,
+      lotteryTicketCount
+    }
+    console.log('data', data);
+    // return res.send({data: dataResponse})
+
+    return res.view('pages/admin/dashboard', {data})
   },
 
   users: async(req,res) => {
@@ -20,8 +34,13 @@ module.exports = {
   },
 
   goldenTicket: async(req,res) => {
-    const goldenTickets = await GoldenTickets.fetchAll();
+    const goldenTickets = await Tickets.fetchAll();
     return res.view('pages/admin/golden_ticket', { goldenTickets, moment })
+  },
+
+  lotteryTicket: async(req,res) => {
+    const lotteryTickets = await Lotteries.fetchAll();
+    return res.view('pages/admin/lottery_ticket', { lotteryTickets, moment })
   },
 
   addGoldenTicket: async(req,res) => {

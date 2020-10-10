@@ -27,14 +27,17 @@ module.exports = {
   },
 
   register: async(req, res) => {
+    console.log('register');
     let {referrer,password,email} = req.allParams()
     const checkExisted = await Users.findOne({email})
     if (checkExisted) return res.json({error: 'email is registered, please choose other email'})
-    Users.create({email,password,referrer}).then(()=>{
+
+    const registered = await Users.register({email,password,referrer})
+    console.log('registered', registered);
+    if(registered.success) {
       return res.redirect(`/auth/login?email=${email}`);
-    }).catch((err)=>{
-      res.json(err)
-    })
+    }
+    return res.json({error: registered.data})
   },
 
   logout: function(req, res) {
