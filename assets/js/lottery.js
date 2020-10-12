@@ -25,16 +25,16 @@ function updateLotteryBoard() {
   const pricePerTicket = $('#lotteryPage input[name="price_per_ticket"]').val()
   const totalAmountPrice = totalTickets * pricePerTicket
   const realAmount = totalAmountPrice * 0.9 // -10%
-  const first = (realAmount / 10).toFixed(10)
-  const second = (first / 2).toFixed(10)
-  const third = (second / 2).toFixed(10)
-  const fourth = (third / 2).toFixed(10)
-  const fifth = (fourth / 2).toFixed(10)
-  const sixth = (fifth / 2).toFixed(10)
-  const seventh = (sixth / 2).toFixed(10)
-  const eighth = (seventh / 2).toFixed(10)
-  const ninth = (eighth / 2).toFixed(10)
-  const tenth = (ninth / 2).toFixed(10)
+  const first = (realAmount / 10).toFixed(2)
+  const second = (first / 2).toFixed(2)
+  const third = (second / 2).toFixed(2)
+  const fourth = (third / 2).toFixed(2)
+  const fifth = (fourth / 2).toFixed(2)
+  const sixth = (fifth / 2).toFixed(2)
+  const seventh = (sixth / 2).toFixed(2)
+  const eighth = (seventh / 2).toFixed(2)
+  const ninth = (eighth / 2).toFixed(2)
+  const tenth = (ninth / 2).toFixed(2)
 
   $('#lotteryPage span.first').text(first);
   $('#lotteryPage span.second').text(second);
@@ -87,7 +87,7 @@ function calTicketAmount() {
   const pricePerTicket = $('#lotteryPage input[name="price_per_ticket"]').val()
   const totalAmountPrice = numberTickets * pricePerTicket
 
-  $('#lotteryPage input[name="total_amount_price"]').val(totalAmountPrice.toFixed(8))
+  $('#lotteryPage input[name="total_amount_price"]').val(totalAmountPrice)
 }
 
 $('button.buyLotteryTicket').click(function(){

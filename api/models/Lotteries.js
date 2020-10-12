@@ -106,7 +106,7 @@ module.exports = {
       winChange, amountWon, lastTotalTickets,
       expiredTime,
       lastWinner: lastWinner[0],
-      price_per_ticket: setting.PRICE_PER_LOTTERY_TICKET.toFixed(8)
+      price_per_ticket: setting.PRICE_PER_LOTTERY_TICKET
     }
     console.log('responseData', responseData);
     return responseData
@@ -159,7 +159,7 @@ module.exports = {
       const buyTicketSuccess = {
         success: true,
         data: {
-          updatedCurrentCoin: updatedCurrentCoin.toFixed(8)
+          updatedCurrentCoin: updatedCurrentCoin
         }
       }
 
