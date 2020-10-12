@@ -31,6 +31,7 @@ module.exports.routes = {
   'GET /getDashboard': 'DashboardController.index',
   'GET /wallet': 'WalletController.index',
   'GET /admin/golden_ticket/create': { view: 'pages/admin/create_golden_ticket' },
+  'GET /faq': { view: 'pages/faq' },
 
   // Admin Page
   'GET /admin': 'AdminController.dashboard',

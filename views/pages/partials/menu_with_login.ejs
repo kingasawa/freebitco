@@ -9,8 +9,18 @@
         <a class="item" href="/lottery">LOTTERY</a>
         <a class="item" href="/contest">CONTEST</a>
         <a class="item" href="/referral">REFERRAL</a>
-        <a class="item">MORE</a>
-        <a class="item active teal currentCoin"><%= req.user.current_coin.toFixed(8) %> ILU</a>
+
+        <div class="ui compact inverted menu">
+            <div class="ui simple dropdown item">
+                MORE
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item" href="/faq">FAQ</a>
+                    <div class="item" href="#">Profile</div>
+                </div>
+            </div>
+        </div>
+        <a class="item active teal currentCoin"><%= req.user.current_coin %> ILU</a>
         <a class="item" href="auth/logout">
             <i class="power off yellow large icon"></i>
         </a>

@@ -3,6 +3,10 @@ $(function() {
   $('select.dropdown')
     .dropdown();
 
+  $('.ui.dropdown')
+    .dropdown()
+  ;
+
   $('.menu .item')
     .tab();
 
