@@ -93,8 +93,8 @@ module.exports = {
       currentCoin,
       number: getFreeCoin.number,
       coin: getFreeCoin.coin,
-      lotteryTicket: newLotteryTicket,
-      rewardPoint: newRewardPoint,
+      lotteryTicket: 2,
+      rewardPoint: 2,
       expiredTime: moment().add(setting.ADD_TIME_AMOUNT, setting.ADD_TIME_UNIT)
     }
   },
