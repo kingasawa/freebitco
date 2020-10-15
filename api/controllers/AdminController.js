@@ -17,9 +17,6 @@ module.exports = {
       goldenTicketCount,
       lotteryTicketCount
     }
-    console.log('data', data);
-    // return res.send({data: dataResponse})
-
     return res.view('pages/admin/dashboard', {data})
   },
 
@@ -27,6 +24,18 @@ module.exports = {
     const users = await Users.fetchAll();
     return res.view('pages/admin/users', { users, moment })
   },
+
+  addUserPage: async(req,res) => {
+    return res.view('pages/admin/add_user')
+  },
+
+  createUser: async(req,res) => {
+    const params = req.allParams()
+    const created = await Users.register(params)
+    sails.log.debug('created', created)
+    return res.json(created)
+  },
+
 
   betting: async(req,res) => {
     const bets = await Bettings.fetchAll();

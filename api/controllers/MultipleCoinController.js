@@ -17,6 +17,7 @@ module.exports = {
   manualBet: async(req,res) => {
     const params = req.allParams()
     params.userId = req.user.id
+    params.userCoin = req.user.current_coin
     sails.log.debug('params', params)
     const result = await Dices.manualBet(params)
     return res.json(result)

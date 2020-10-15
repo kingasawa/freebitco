@@ -36,6 +36,10 @@ module.exports.routes = {
   // Admin Page
   'GET /admin': 'AdminController.dashboard',
   'GET /admin/users': 'AdminController.users',
+  'GET /admin/users/add': 'AdminController.addUserPage',
+  'POST /admin/users/add': 'AdminController.createUser',
+  'GET /admin/users/edit/:id': 'AdminController.editUser',
+  'PUT /admin/users/edit/:id': 'AdminController.updateUser',
   'GET /admin/betting': 'AdminController.betting',
   'GET /admin/golden_ticket': 'AdminController.goldenTicket',
   'GET /admin/lottery_ticket': 'AdminController.lotteryTicket',

@@ -40,7 +40,12 @@ module.exports = {
   },
 
   manualBet: async(data) => {
-    const { userId, betAmount, betOdd, betType, playJackpot } = data
+    const { userId, betAmount, betOdd, betType, playJackpot, userCoin } = data
+    if (userCoin < betAmount)
+      return {
+        error: true,
+        message: 'Insufficient balance'
+      }
     const currentTime = moment().format();
     let updatedCoin = 0
     let type = 'subtract'

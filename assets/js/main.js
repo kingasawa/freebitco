@@ -27,5 +27,4 @@ $(function() {
   console.log('btcAddress', btcAddress);
   $('#btc-qr-code-canvas').qrcode({width: 64,height: 64,text: btcAddress});
 
-
 });

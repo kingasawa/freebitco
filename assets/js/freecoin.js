@@ -18,7 +18,7 @@ $(function() {
       const diffTime = expiredTime - currentTime;
 
       setCountdown(diffTime, true);
-      $('.currentCoin').html(`${data.currentCoin} BTC`)
+      $('.currentCoin').html(`${data.currentCoin} ILU`)
       return divResponseData
         .empty()
         .append(`<div class="rollPoint">${data.number}</div>`)

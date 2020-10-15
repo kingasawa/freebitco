@@ -44,7 +44,7 @@ $(function(){
 
   function countWinProfit(betAmount, betOdd) {
     const winProfit = (betOdd - 1) * betAmount
-    $('#multipleCoinPage input[name="winProfit"]').val(winProfit.toFixed(8));
+    $('#multipleCoinPage input[name="winProfit"]').val(winProfit);
   }
 
   function updateRangeWin(odd) {
@@ -57,7 +57,7 @@ $(function(){
   $('#multipleCoinPage #manualBet input[name="betAmount"]').keyup(function() {
     const betAmount = $('input[name="betAmount"]').val()
 
-    const minValue = 0.00000001.toFixed(8)
+    const minValue = 1
     if (parseFloat(betAmount) === 0 && betAmount.length === 10) $('input[name="betAmount"]').val(minValue);
   })
 
@@ -65,6 +65,7 @@ $(function(){
     const currentCoin = $('#homeMenu .currentCoin').text()
     const betAmount = $('#multipleCoinPage input[name="betAmount"]').val()
 
+// console.log('currentCoin', currentCoin);
     let updatedBetAmount = 0;
     const buttonId = e.target.id
     switch (buttonId) {
@@ -75,13 +76,14 @@ $(function(){
         updatedBetAmount = betAmount * 2
         break;
       case 'getMin':
-        updatedBetAmount = 0.00000001
+        updatedBetAmount = 1
         break;
       case 'getMax':
         updatedBetAmount = parseFloat(currentCoin)
         break;
     }
-    $('#multipleCoinPage input[name="betAmount"]').val(updatedBetAmount.toFixed(8))
+    if (updatedBetAmount < 1) updatedBetAmount = 1
+    $('#multipleCoinPage input[name="betAmount"]').val(updatedBetAmount)
 
     const betOdd = $('#multipleCoinPage input[name="betOdd"]').val()
     countWinProfit(updatedBetAmount, betOdd)
@@ -99,14 +101,24 @@ $(function(){
   })
 
   $('button.submit-bet-button').click(function(e){
+
+    const currentCoin = $('#homeMenu .currentCoin').text()
+    const betAmount = $('#multipleCoinPage input[name="betAmount"]').val()
+
+    if (parseInt(currentCoin) < parseInt(betAmount)) {
+      return noty({
+        text: 'Insufficient balance',
+        type: 'error'
+      });
+    }
+
     const playJackpot = [];
     $.each($("input[name='jackpot']:checked"), function(){
       playJackpot.push($(this).val());
     });
 
-    console.log('playJackpot', playJackpot);
     const postData = {
-      betAmount: $('#multipleCoinPage input[name="betAmount"]').val(),
+      betAmount: betAmount,
       betOdd: $('#multipleCoinPage input[name="betOdd"]').val(),
       betType: e.target.id,
       playJackpot
@@ -115,11 +127,18 @@ $(function(){
     $.post('/multiple-coin/manualBet', postData, function( result ) {
       console.log('result', result);
 
+      if (result.error) {
+        return noty({
+          text: result.message,
+          type: 'error'
+        });
+      }
       if(result.betResult === 'lose') {
         $('#multipleCoinPage div.diceResult').html(`<div class="ui error message">${result.resultMessage}</div>`)
       } else {
         $('#multipleCoinPage div.diceResult').html(`<div class="ui success message">${result.resultMessage}</div>`)
       }
+      $('#homeMenu .currentCoin').text(`${result.user.current_coin} ILU`)
       updateNumberJackpot(result.randomNumber)
     })
   })

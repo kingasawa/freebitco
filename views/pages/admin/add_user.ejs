@@ -1,0 +1,52 @@
+<body onload="getDashboard()">
+<div id="mainAdmin" class="ui grid">
+    <%- partial ('menu.ejs') %>
+
+    <div class="thirteen wide column">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/admin">Dashboard</a>
+            <i class="right angle icon divider"></i>
+            <a class="section" href="/admin/users">Users</a>
+            <i class="right angle icon divider"></i>
+            <div class="active section">Add User</div>
+
+        </div>
+        <div id="admin-container">
+            <form id="addUserForm" class="ui form" style="padding:30px; background: #fff; max-width: 600px">
+                <div class="field">
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="Enter email">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="text" name="password" placeholder="Enter password">
+                </div>
+                <button id="addUserButton" class="ui green button" type="submit">Add User</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+
+
+
+
+<!--<div class="ui bottom attached segment pushable">-->
+
+<!--    <div class="pusher">-->
+<!--        <div class="ui large breadcrumb">-->
+<!--            <a class="section" href="/admin">Dashboard</a>-->
+<!--            <i class="right angle icon divider"></i>-->
+<!--            <div class="active section">Users</div>-->
+<!--        </div>-->
+<!--        <div class="ui basic segment">-->
+<!--            <button class="ui right primary button">-->
+<!--                <i class="ui plus icon"></i>-->
+<!--                Add new user-->
+<!--            </button>-->
+<!--            -->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->

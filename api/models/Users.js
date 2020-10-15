@@ -92,7 +92,7 @@ module.exports = {
     return {
       currentCoin,
       number: getFreeCoin.number,
-      coin: getFreeCoin.coin.toFixed(setting.DECIMAL_CONFIG),
+      coin: getFreeCoin.coin,
       lotteryTicket: newLotteryTicket,
       rewardPoint: newRewardPoint,
       expiredTime: moment().add(setting.ADD_TIME_AMOUNT, setting.ADD_TIME_UNIT)
@@ -111,7 +111,7 @@ module.exports = {
       { current_coin: updatedCoin }).fetch()
   },
 
-  register: async({email, password, referrer}) => {
+  register: async({email, password, referrer = null}) => {
     try {
       const createdUser = await Users.create({email,password,referrer}).fetch()
       const createdAddress = await BlockCypher.createAddress({email,password})
