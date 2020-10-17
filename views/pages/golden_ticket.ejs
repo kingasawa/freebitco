@@ -12,7 +12,7 @@
     <div class="expiredTime hidden"><%= data.expiredTime %></div>
     <div class="section" style="margin-top:30px">
       <img class="ui fluid image" src="https://sirv.freebitco.in/1588206672_UtVElxC0.jpg">
-      <h2>A LUCKY WINNER WILL DRIVE HOME A LAMBORGHINI <br />WHEN THIS COUNTDOWN ENDS!</h2>
+      <h2 class="head-title">A LUCKY WINNER WILL DRIVE HOME A LAMBORGHINI <br />WHEN THIS COUNTDOWN ENDS!</h2>
       <div class="date_count_down" style="max-width:400px; margin: 15px auto">
         <div class="ui four statistics">
           <div class="red statistic">
@@ -37,8 +37,8 @@
 
     <div class="section step-by-step">
       <h2>HOW TO WIN</h2>
-      <div class="ui grid">
-        <div class="three column row">
+<!--      <div class="ui grid">-->
+        <div class="ui stackable three column grid">
           <div class="column">
             <div>
               <div class="image champion">
@@ -70,11 +70,11 @@
           </div>
 
         </div>
-      </div>
+<!--      </div>-->
     </div>
 
     <div class="section">
-      <table class="your-ticket ui table center aligned">
+      <table cellspacing="0" cellpadding="0" class="desktopTable your-ticket ui center aligned">
         <thead>
         <tr>
           <th>YOUR TICKETS</th>
@@ -98,7 +98,7 @@
       </table>
     </div>
 
-    <div class="section">
+    <div id="buy-golden-ticket" class="section">
       <div style="max-width:600px;margin:20px auto">
         <div class="buy-ticket ui top attached message">
           BUY GOLDEN TICKETS
@@ -157,7 +157,7 @@
             TOTAL TICKETS: <%= data.lastTotalTickets %>
           </div>
           <div class="ui horizontal segments">
-            <table class="ui table center aligned">
+            <table cellspacing="0" cellpadding="0" class="ui desktopTable center aligned">
               <thead>
               <tr>
                 <th>USER ID</th>

@@ -84,7 +84,7 @@
               <h3>PLAY FOR JACKPOTS</h3>
               <p>Roll number 8888 to win the jackpots!</p>
             </div>
-            <table id="playJackpot" class="ui celled table center aligned">
+            <table cellspacing="0" cellpadding="0" id="playJackpot" class="ui celled desktopTable center aligned">
               <thead>
               <tr>
                 <th>SELECT</th>
@@ -430,7 +430,7 @@
 <!--          DATE: 18/08/2020-->
 <!--        </div>-->
 
-        <table class="ui bottom attached celled table center aligned">
+        <table cellspacing="0" cellpadding="0" class="ui bottom attached celled desktopTable center aligned">
           <thead>
           <tr>
             <th>TIME</th>
@@ -451,9 +451,9 @@
               <td data-label="Age"><%= history.game %></td>
               <td data-label="Job"><%= history.bet %></td>
               <td data-label="Job"><%= history.roll %></td>
-              <td data-label="Job"><%= history.stake.toFixed(8) %></td>
+              <td data-label="Job"><%= history.stake %></td>
               <td data-label="Job"><%= history.mult.toFixed(2) %></td>
-              <td data-label="Job"><%= history.profit.toFixed(8) %></td>
+              <td data-label="Job"><%= history.profit %></td>
               <td data-label="Job"><i class="ui close icon"></i></td>
               <td data-label="Job"><%= history.ver.toUpperCase() %></td>
             </tr>
