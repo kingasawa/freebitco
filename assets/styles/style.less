@@ -21,6 +21,33 @@ body {
   }
 }
 
+#home-body {
+  color: #fff !important;
+  background-color: rgb(11, 3, 1) !important;
+  background-size: cover !important;
+  background-position: 50% center !important;
+  background-image: url(/images/homebackground.jpg) !important;
+  form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+  }
+  .container {
+    .item {
+      margin:10px;
+    }
+  }
+}
+#homepage-title {
+  i {
+    color: #32e224;
+  }
+}
+.award-title {
+  background: linear-gradient(to right, #fcb900 0%,#fb9102 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .desktopTable {
   width: 100%;
   background: #fff;
@@ -420,6 +447,15 @@ div.bet-count-button:hover {
 }
 
 @media only screen and (max-width: 600px) {
+
+  #home-body {
+    #homepage-title {
+      text-align: center !important;
+    }
+    .item-list {
+      display: none;
+    }
+  }
 
   #goldenTicketPage {
     .head-title {

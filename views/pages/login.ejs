@@ -1,8 +1,10 @@
-<body>
+<body id="home-body">
 <%- partial ('../pages/partials/menu_no_login.ejs') %>
-<div class="container" style="padding:30px">
-  <div class="ui two column grid">
-    <div class="column"></div>
+<div class="container" style="padding:0 30px; background: none">
+  <div class="ui stackable two column grid">
+    <div class="column">
+      <%- partial ('../pages/partials/home.ejs') %>
+    </div>
     <div class="column">
       <form class="ui form" method="POST" action="/auth/login">
         <div class="field">
@@ -17,12 +19,12 @@
           <label>2FA Code</label>
           <input type="text" name="2fa" placeholder="Enter 2FA Code">
         </div>
-        <button class="fluid ui inverted green button" type="submit">LOGIN</button>
+        <button class="fluid ui primary button" type="submit">LOGIN</button>
 <!--        <div class="fluid ui submit inverted green button">LOGIN</div>-->
+        <div style="margin-top: 30px">
+          <a href="#">FORGOT PASSWORD</a>  <span style="color:#CCC"> - </span>  <a href="#">RESET 2FA CODE</a>
+        </div>
       </form>
-      <div class="ui bottom attached warning message" style="margin-top:10px;text-align: center">
-        <a href="#">Forgot password</a> or <a href="#">Reset 2FA Code</a>
-      </div>
     </div>
   </div>
 </div>
