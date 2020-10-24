@@ -1,0 +1,74 @@
+<body>
+<div id="mainAdmin" class="ui grid">
+    <%- partial ('menu.ejs') %>
+
+    <div class="thirteen wide column">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/admin">Dashboard</a>
+            <i class="right angle icon divider"></i>
+            <a class="section" href="/admin/users">Users</a>
+            <i class="right angle icon divider"></i>
+            <a class="section" href="/admin/users">Edit Users</a>
+            <i class="right angle icon divider"></i>
+            <div class="active section"><%= user.email %> (ID: <%= user.id %>)</div>
+        </div>
+
+        <div id="admin-container">
+            <form id="editUserForm" class="ui form" style="padding:30px; background: #fff; max-width: 600px">
+                <input class="hidden" type="text" name="id" value="<%= user.id %>" disabled>
+                <div class="field">
+                    <label>Email</label>
+                    <input type="text" name="email" value="<%= user.email %>" disabled>
+                </div>
+                <div class="field">
+                    <label>Lottery Ticket</label>
+                    <input type="text" name="lottery_ticket" value="<%= user.lottery_ticket %>">
+                </div>
+                <div class="field">
+                    <label>Reward Point</label>
+                    <input type="text" name="reward_point" value="<%= user.reward_point %>">
+                </div>
+                <div class="field">
+                    <label>Current Coin</label>
+                    <input type="text" name="current_coin" value="<%= user.current_coin %>">
+                </div>
+                <div class="field">
+                    <label>User is Human ?</label>
+                    <div class="ui toggle checkbox">
+                        <input type="checkbox" name="human" <%- user.human ? 'checked' : '' %>>
+                        <label></label>
+                    </div>
+                </div>
+<!--                <div class="field">-->
+<!--                    <label>Password</label>-->
+<!--                    <input type="text" name="password" placeholder="Enter password">-->
+<!--                </div>-->
+                <button id="editUserButton" class="ui green button" type="submit">Edit User</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+
+
+
+
+<!--<div class="ui bottom attached segment pushable">-->
+
+<!--    <div class="pusher">-->
+<!--        <div class="ui large breadcrumb">-->
+<!--            <a class="section" href="/admin">Dashboard</a>-->
+<!--            <i class="right angle icon divider"></i>-->
+<!--            <div class="active section">Users</div>-->
+<!--        </div>-->
+<!--        <div class="ui basic segment">-->
+<!--            <button class="ui right primary button">-->
+<!--                <i class="ui plus icon"></i>-->
+<!--                Add new user-->
+<!--            </button>-->
+<!--            -->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->

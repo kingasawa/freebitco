@@ -6,8 +6,9 @@
  */
 module.exports = {
   index: async(req,res) => {
-
-    return res.view('pages/earn');
+    const userId = req.user.id
+    const user = await Users.fetch(userId)
+    return res.view('pages/earn', {user});
   },
 
 };

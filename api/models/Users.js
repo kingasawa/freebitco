@@ -66,6 +66,10 @@ module.exports = {
     });
   },
 
+  fetch: async(id) => {
+    return await Users.findOne({id})
+  },
+
   fetchAll: async() => {
     return await Users.find().limit(10)
   },
@@ -136,6 +140,24 @@ module.exports = {
       }
     }
   },
+
+  updateUser: async(payload) => {
+    const { id, human, password, lottery_ticket, reward_point, current_coin } = payload
+
+    const updated = await Users.update({id})
+      .set({
+        human,
+        password,
+        lottery_ticket,
+        reward_point,
+        current_coin
+      })
+      .fetch()
+
+    console.log('updated', updated);
+    return updated
+  },
+
 
 
 

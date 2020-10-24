@@ -1,4 +1,4 @@
-<body onload="getDashboard()">
+<body>
 <div id="mainAdmin" class="ui grid">
     <%- partial ('menu.ejs') %>
 
@@ -22,19 +22,23 @@
                     <th>Lottery Ticket</th>
                     <th>Reward Point</th>
                     <th>Coin</th>
-                    <th>Latest Roll</th>
+                    <th>Edit</th>
                 </tr>
                 </thead>
                 <tbody>
                 <% users.forEach(function(user){ %>
                     <tr>
-                        <td><%- user.id %></td>
+                        <td><a href="/admin/users/edit/<%- user.id %>"><%- user.id %></a></td>
                         <td><%- user.email %></td>
                         <td><%- user.referrer %></td>
                         <td><%- user.lottery_ticket %></td>
                         <td><%- user.reward_point %></td>
                         <td><%- user.current_coin %></td>
-                        <td><%- moment(user.latest_roll_time).fromNow() %></td>
+                        <td>
+                            <a href="/admin/users/edit/<%- user.id %>">
+                                <i class="ui edit icon"></i>
+                            </a>
+                        </td>
                     </tr>
                 <% }); %>
                 </tbody>

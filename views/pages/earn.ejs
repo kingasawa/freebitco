@@ -12,7 +12,7 @@
     <div class="section" style="margin-top:30px">
       <h3>Your FreeILU.com account is now also a ilu savings wallet!</h3>
       <h3 class="ui red header">Receive compounded daily interest on any balance that you hold in your FreeILU.com account, without doing anything.</h3>
-      <p>All you need to do is maintain a balance of at least 30,000 satoshi (0.0003 ILU) in your FreeILU.com account and we shall pay you compounded interest on your full balance everyday. There is no lock-in period to earn interest (you start earning interest right from the first day!) and your balance can be withdrawn any time you wish. Treat your FreeILU.com account like an instant-access savings account to hold your excess ILUs and earn passive interest on your account balance everyday.</p>
+      <p>All you need to do is maintain a balance of at least 30,000 ILU in your FreeILU.com account and we shall pay you compounded interest on your full balance everyday. There is no lock-in period to earn interest (you start earning interest right from the first day!) and your balance can be withdrawn any time you wish. Treat your FreeILU.com account like an instant-access savings account to hold your excess ILUs and earn passive interest on your account balance everyday.</p>
       <h3>We also pay you 25% referral commissions on any interest earned by your referrals!</h3>
     </div>
 
@@ -44,7 +44,7 @@
             <div class="item">
               <div class="right floated content">
                 <div class="ui input">
-                  <input type="text">
+                  <input type="text" value="<%= user.current_coin.toLocaleString() %>" disabled>
                 </div>
               </div>
               <div style="line-height: 42px">

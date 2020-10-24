@@ -29,11 +29,23 @@ module.exports = {
     return res.view('pages/admin/add_user')
   },
 
+  editUserPage: async(req,res) => {
+    const { id } = req.allParams()
+    const user = await Users.fetch(id)
+    return res.view('pages/admin/edit_user', {user})
+  },
+
   createUser: async(req,res) => {
     const params = req.allParams()
     const created = await Users.register(params)
-    sails.log.debug('created', created)
     return res.json(created)
+  },
+
+  updateUser: async(req,res) => {
+    const params = req.allParams()
+    console.log('params', params);
+    const updated = await Users.updateUser(params)
+    return res.json(updated)
   },
 
 
