@@ -95,7 +95,7 @@ $('button.buyLotteryTicket').click(function(){
   const numberTickets = $('#lotteryPage input[name="no_of_tickets"]').val()
   const pricePerTicket = $('#lotteryPage input[name="price_per_ticket"]').val()
   const totalAmountPrice = numberTickets * parseFloat(pricePerTicket)
-  const currentCoin = $('#homeMenu .currentCoin').text()
+  const currentCoin = $('#homepageMenu .currentCoin').text()
 
   if (parseInt(numberTickets) === 0) return false;
 
@@ -121,7 +121,7 @@ $('button.buyLotteryTicket').click(function(){
     updateTotalTicket(numberTickets);
     updateLotteryBoard()
     updateUserTicket(parseInt(numberTickets));
-    $('#homeMenu .currentCoin').text(`${result.data.updatedCurrentCoin} ILU`)
+    $('.currentCoin').text(`${result.data.updatedCurrentCoin} ILU`)
     $('button.buyLotteryTicket').attr("disabled", false);
   })
 })

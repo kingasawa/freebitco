@@ -62,7 +62,7 @@ $(function(){
   })
 
   $('#multipleCoinPage div.bet-count-button').click(function(e) {
-    const currentCoin = $('#homeMenu .currentCoin').text()
+    const currentCoin = $('#homepageMenu .currentCoin').text()
     const betAmount = $('#multipleCoinPage input[name="betAmount"]').val()
 
 // console.log('currentCoin', currentCoin);
@@ -102,7 +102,8 @@ $(function(){
 
   $('button.submit-bet-button').click(function(e){
 
-    const currentCoin = $('#homeMenu .currentCoin').text()
+    const currentCoin = $('#homepageMenu .currentCoin').text()
+    console.log('currentCoin', currentCoin);
     const betAmount = $('#multipleCoinPage input[name="betAmount"]').val()
 
     if (parseInt(currentCoin) < parseInt(betAmount)) {
@@ -138,7 +139,8 @@ $(function(){
       } else {
         $('#multipleCoinPage div.diceResult').html(`<div class="ui success message">${result.resultMessage}</div>`)
       }
-      $('#homeMenu .currentCoin').text(`${result.user.current_coin} ILU`)
+      console.log('222');
+      $('.currentCoin').text(`${result.user.current_coin} ILU`)
       updateNumberJackpot(result.randomNumber)
     })
   })

@@ -106,7 +106,7 @@ module.exports = {
 
       const buyTicketSuccess = {
         success: true,
-        data: { updatedCurrentCoin: updatedCurrentCoin.toFixed(8) }
+        data: { updatedCurrentCoin: updatedCurrentCoin }
       }
 
       return buyTicketSuccess
