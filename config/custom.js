@@ -25,6 +25,8 @@ module.exports.custom = {
     LOTTERY: 2
   },
 
-  BLOCKCYPHER_TOKEN: '9866d89f8b7d4d4f93f1db3dfa26ac51'
+  BLOCKCYPHER_TOKEN: '9866d89f8b7d4d4f93f1db3dfa26ac51',
+  SYSTEM_EMAIL_ACCOUNT: 'freeilu.com@gmail.com',
+  SYSTEM_EMAIL_PASSWORD: 'Abc!@#321'
 
 };

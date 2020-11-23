@@ -65,7 +65,6 @@ $(function(){
     const currentCoin = $('#homepageMenu .currentCoin').text()
     const betAmount = $('#multipleCoinPage input[name="betAmount"]').val()
 
-// console.log('currentCoin', currentCoin);
     let updatedBetAmount = 0;
     const buttonId = e.target.id
     switch (buttonId) {
@@ -100,6 +99,7 @@ $(function(){
     updateRangeWin(currentBetOdd)
   })
 
+  // Start Manual Bet
   $('button.submit-bet-button').click(function(e){
 
     const currentCoin = $('#homepageMenu .currentCoin').text()
@@ -143,5 +143,11 @@ $(function(){
       $('.currentCoin').text(`${result.user.current_coin} ILU`)
       updateNumberJackpot(result.randomNumber)
     })
+  })
+
+  //Start Auto Bet
+  $('button#startAutoBet').click(function(e) {
+    console.log('start auto bet');
+
   })
 })

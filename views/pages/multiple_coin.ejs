@@ -173,7 +173,7 @@
             <button class="large ui button">
               BASE BET
             </button>
-            <input type="text" value="0.00000001">
+            <input name="baseBet" type="text" value="0.00000001">
           </div>
 
           <div class="ui left fluid action input" style="margin-top:14px;">
@@ -192,7 +192,7 @@
               </div>
               <div class="ui attached segment">
                 <div class="ui fluid input">
-                  <input type="text" value="2.00" style="text-align: center">
+                  <input name="betOdd" type="text" value="2.00" style="text-align: center">
                 </div>
               </div>
             </div>
@@ -204,7 +204,7 @@
               </div>
               <div class="ui attached segment">
                 <div class="ui fluid input">
-                  <input type="text" value="1000000" style="text-align: center">
+                  <input name="noOfRoll" type="text" value="1000000" style="text-align: center">
                 </div>
               </div>
             </div>
@@ -218,20 +218,14 @@
               <div class="inline fields">
                 <div class="field">
                   <div class="ui checkbox">
+                    <input type="radio" name="betOn" checked="">
                     <label>HIGH</label>
-                    <input type="checkbox" name="fruit" checked="checked">
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui checkbox">
+                    <input type="radio" name="betOn">
                     <label>LOW</label>
-                    <input type="checkbox" name="fruit">
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <label>ALTERNATE</label>
-                    <input type="checkbox" name="fruit">
                   </div>
                 </div>
               </div>
@@ -245,21 +239,21 @@
             <table class="ui bottom attached celled table center aligned" style="margin:0 -1px">
               <tbody>
               <tr>
-                <td><input type="checkbox" name="fruit"></td>
+                <td><input type="checkbox" name="stopAfterProfit"></td>
                 <td>PROFIT >=</td>
                 <td>
                   <div class="ui input">
-                    <input type="text" value="0.00000001">
+                    <input id="stopAfterProfit" type="text" value="0.00000001">
                   </div>
                 </td>
               </tr>
 
               <tr>
-                <td><input type="checkbox" name="fruit"></td>
+                <td><input type="checkbox" name="stopAfterLoss"></td>
                 <td>LOSS >=</td>
                 <td>
                   <div class="ui input">
-                    <input type="text" value="0.00000001">
+                    <input id="stopAfterLoss" type="text" value="0.00000001">
                   </div>
                 </td>
               </tr>
@@ -279,13 +273,13 @@
               <div class="inline fields" style="margin-bottom: 0">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="frequency" checked="checked">
+                    <input type="radio" name="onResult" value="onWin" checked="checked">
                     <label>ON WIN</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="frequency">
+                    <input type="radio" name="onResult" value="onLose">
                     <label>ON LOSE</label>
                   </div>
                 </div>
@@ -297,29 +291,29 @@
               <div class="grouped fields">
                 <div class="field">
                   <div class="ui checkbox">
+                    <input type="checkbox" name="returnToBase" checked>
                     <label>RETURN TO BASE BET</label>
-                    <input type="checkbox" name="fruit" checked="checked">
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui checkbox">
+                    <input type="checkbox" name="increaseBet">
                     <label>INCREASE BET BY
                       <div class="ui input" style="width:80px;margin:0 10px;height: 14px">
-                        <input type="text" value="0.00">
+                        <input id="increaseBet" type="text" value="0.00">
                       </div>
                       %
                     </label>
-                    <input type="checkbox" name="fruit">
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui checkbox">
+                    <input type="checkbox" name="changeOdd">
                     <label>CHANGE ODDS TO
                       <div class="ui input" style="width:80px;margin:0 10px;height: 14px">
-                        <input type="text" value="0.00">
+                        <input id="changeOdd" type="text" value="0.00">
                       </div>
                     </label>
-                    <input type="checkbox" name="fruit">
                   </div>
                 </div>
               </div>
@@ -393,7 +387,7 @@
           <span id="fifthJackpotNumber" class="jackpotNumber">0</span>
         </div>
         <div class="section">
-          <button class="ui yellow button">START AUTO-BET</button>
+          <button id="startAutoBet" class="ui yellow button">START AUTO-BET</button>
         </div>
         <div class="section">
           <p>

@@ -35,6 +35,7 @@ module.exports = {
     const registered = await Users.register({email,password,referrer})
     console.log('registered', registered);
     if(registered.success) {
+      await SendMail.welcome(email)
       return res.redirect(`/auth/login?email=${email}`);
     }
     return res.json({error: registered.data})
