@@ -32,6 +32,7 @@ module.exports.routes = {
   'GET /wallet': 'WalletController.index',
   'GET /admin/golden_ticket/create': { view: 'pages/admin/create_golden_ticket' },
   'GET /faq': { view: 'pages/faq' },
+  'GET /resetPassword/:token': 'AuthController.resetPassword',
 
   // Admin Page
   'GET /admin': 'AdminController.dashboard',

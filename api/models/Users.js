@@ -20,6 +20,12 @@ module.exports = {
     password: {
       type: 'string'
     },
+    forgot_password: {
+      type: 'boolean'
+    },
+    forgot_password_token: {
+      type: 'string'
+    },
     lottery_ticket: {
       type: 'number'
     },
@@ -74,6 +80,20 @@ module.exports = {
     return await Users.find().limit(10)
   },
 
+  requestForgotPassword: async(userId) => {
+    const user = await Users.findOne({id: userId})
+    const token = TokenAuth.generateToken({userId})
+    await Users.update({id: userId},
+      {
+        forgot_password: 1,
+        forgot_password_token: token
+      })
+    await SendMail.forgotPassword(user.email, token)
+    return {
+      success: true
+    }
+  },
+
   submitRoll: async(userId) => {
     const user = await Users.findOne({id:userId})
 
@@ -108,8 +128,8 @@ module.exports = {
     const currentCoin = user.current_coin
     let updatedCoin = 0
 
-    if (type === 'add') updatedCoin = currentCoin + coin
-    else updatedCoin = currentCoin - coin
+    if (type === 'add') {updatedCoin = currentCoin + coin}
+    else {updatedCoin = currentCoin - coin}
 
     return await Users.update({id: userId},
       { current_coin: updatedCoin }).fetch()

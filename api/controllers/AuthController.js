@@ -28,9 +28,9 @@ module.exports = {
 
   register: async(req, res) => {
     console.log('register');
-    let {referrer,password,email} = req.allParams()
+    let {referrer, password, email} = req.allParams()
     const checkExisted = await Users.findOne({email})
-    if (checkExisted) return res.json({error: 'email is registered, please choose other email'})
+    if (checkExisted) {return res.json({error: 'email is registered, please choose other email'})}
 
     const registered = await Users.register({email,password,referrer})
     console.log('registered', registered);
@@ -52,6 +52,17 @@ module.exports = {
     res.status(200).send(req.session)
   },
 
+  forgotPassword: async(req, res) => {
+    const userId = req.user.id
+    await Users.requestForgotPassword(userId)
+    return res.json({success: true})
+  },
+  
+  resetPassword: async(req, res) => {
+    console.log('hereeeee')
+    res.json({msg: 'ok'})
+  },
+
   loginPage: async(req,res) => {
     const { email = null } = req.allParams()
     // console.log('req', req);
@@ -60,6 +71,7 @@ module.exports = {
     }
     return res.view('pages/login', {email});
   },
+
   registerPage: async(req,res) => {
     if(req.user) {
       return res.redirect('/');
