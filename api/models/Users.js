@@ -140,13 +140,17 @@ module.exports = {
       const createdUser = await Users.create({email,password,referrer}).fetch()
       const createdAddress = await BlockCypher.createAddress({email,password})
       await Wallets.create({
-        unit: 'btc',
+        unit: 'eth',
         address: createdAddress.address,
         public: createdAddress.public,
         private: createdAddress.private,
         wif: createdAddress.wif,
         user: createdUser.id
       })
+
+      const createdHook = await BlockCypher.createHook(createdAddress.address)
+      console.log('createdHook', createdHook)
+
       return {
         success: true,
         data: { email }

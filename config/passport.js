@@ -12,7 +12,7 @@ passport.serializeUser((user, done)=> {
 passport.deserializeUser((user, done)=>{
   const id = user.id;
   Users.findOne(id).populate('wallets', {
-    where: { unit: 'btc' }
+    where: { unit: 'eth' }
   }).exec((err,userData)=> {
     done(err, userData);
   });

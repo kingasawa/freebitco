@@ -28,9 +28,22 @@ $(function() {
 
 
   // eslint-disable-next-line no-undef
-  $('form#login').submit(function(e){
+  $('form#loginForm').submit(function(e){
     e.preventDefault();
-    console.log('submit xxx');
+    const options = {
+      email: $('form#loginForm input[name=email]').val(),
+      password: $('form#loginForm input[name=password]').val()
+    }
+    $.post('/auth/login', options, ( data ) => {
+      if (data.error) {
+        return noty({
+          text: 'Login failed',
+          type: 'error'
+        });
+      } else {
+        window.location.href = data.redirect_url
+      }
+    });
   });
 
 });

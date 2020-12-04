@@ -6,7 +6,7 @@
       <%- partial ('../pages/partials/home.ejs') %>
     </div>
     <div class="column">
-      <form class="ui form" method="POST" action="/auth/login">
+      <form id="loginForm" class="ui form">
         <div class="field">
           <label>Email</label>
           <input type="text" value="<%= email %>" name="email" placeholder="Enter email">
@@ -19,7 +19,7 @@
           <label>2FA Code</label>
           <input type="text" name="2fa" placeholder="Enter 2FA Code">
         </div>
-        <button class="fluid ui primary button" type="submit">LOGIN</button>
+        <button id="loginButton" class="fluid ui primary button" type="submit">LOGIN</button>
 <!--        <div class="fluid ui submit inverted green button">LOGIN</div>-->
         <div style="margin-top: 30px">
           <a href="#">FORGOT PASSWORD</a>  <span style="color:#CCC"> - </span>  <a href="#">RESET 2FA CODE</a>

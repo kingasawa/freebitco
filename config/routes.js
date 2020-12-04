@@ -33,6 +33,9 @@ module.exports.routes = {
   'GET /admin/golden_ticket/create': { view: 'pages/admin/create_golden_ticket' },
   'GET /faq': { view: 'pages/faq' },
   'GET /resetPassword/:token': 'AuthController.resetPassword',
+  'POST /hook/tx': 'BlockCypherController.hookPost',
+  'GET /hook/tx': 'BlockCypherController.hookGet',
+  'GET /address/balance/:address': 'BlockCypherController.balance',
 
   // Admin Page
   'GET /admin': 'AdminController.dashboard',

@@ -1,4 +1,5 @@
 const passport = require('passport');
+const { BASE_URL } = sails.config.custom
 
 module.exports = {
   login: function(req, res) {
@@ -7,7 +8,11 @@ module.exports = {
     req.wantsJSON = true
     passport.authenticate('local', function(err, user, info) {
       if ((err) || (!user)) {
-        return res.status(403).send(info);
+        console.log('info', info)
+        return res.status(200).send({
+          error: true,
+          message: info.message
+        });
       } else {
         let token = TokenAuth.generateToken(user)
         console.log('token', token);
@@ -18,8 +23,12 @@ module.exports = {
             sails.log.error('Auth.logIn', err);
             res.send(err);
           }
+          console.log('heeeee')
           // res.setHeader('authorization',`BEARER ${token}`)
-          return res.redirect('/')
+          return res.status(200).send({
+            error: false,
+            redirect_url: BASE_URL
+          })
         });
       }
 
@@ -57,7 +66,7 @@ module.exports = {
     await Users.requestForgotPassword(userId)
     return res.json({success: true})
   },
-  
+
   resetPassword: async(req, res) => {
     console.log('hereeeee')
     res.json({msg: 'ok'})

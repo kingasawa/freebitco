@@ -7,6 +7,7 @@ module.exports.policies = {
   // '/': 'isAuth',
   'auth/*': true,
   'wallet/*': true,
+  'blockcypher/*': true,
   // Token Auth
   '*': 'isLogin',
   'admin/*': 'isAdmin',
